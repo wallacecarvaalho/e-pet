@@ -1,7 +1,12 @@
 $primary-color: #aaf7d6;
+$secundary-color: lighten($primary-color, 10%);
 @mixin bordar-arredonda($val:50px) {
     -webkit-border-radius: $val;
     -moz-border-radiu: $val;
+}
+
+.fundo {
+    background: $secundary-color;
 }
 
 .col-categoria {
@@ -23,5 +28,9 @@ $primary-color: #aaf7d6;
 
 .navbar.barra-navegacao {
     margin-bottom: 0px;
+    background: $primary-color;
+}
+
+#footer {
     background: $primary-color;
 }

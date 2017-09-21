@@ -42,6 +42,23 @@
     
     @yield('conteudo')
 
+  <footer id="footer">
+ 
+    <div class="row">
+    <div class="col-md-6">
+        <ul>
+            <li>Sobre nos</li>
+        </ul>
+     </div> 
+      <div class="col-md-6">
+        <ul>
+            <li>Empresa</li>
+        </ul>
+      </div>
+    </div>
+
+  </footer>
+
     </body>
     <script src="js/app.js"></script>
 </html>

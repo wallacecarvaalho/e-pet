@@ -47,7 +47,7 @@
 
 
     <div class="row">
-        <div class="container">
+        <div class="container fundo">
             <!--Coluna de categorias-->
             <section class="categorias">
                 <div class="col-md-3 col-categoria">
