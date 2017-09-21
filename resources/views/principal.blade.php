@@ -18,7 +18,7 @@
 
 
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar barra-navegacao navbar-default">
     
     <div class="container-fluid">
 
