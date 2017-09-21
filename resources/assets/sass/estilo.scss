@@ -1,3 +1,9 @@
+$primary-color: #aaf7d6;
+@mixin bordar-arredonda($val:50px) {
+    -webkit-border-radius: $val;
+    -moz-border-radiu: $val;
+}
+
 .col-categoria {
     background: white;
 }
@@ -11,9 +17,11 @@
     margin: 0 auto;
     left: 10%;
     max-width: 1100px;
+    padding-bottom: 10px;
+    @include bordar-arredonda;
 }
 
 .navbar.barra-navegacao {
     margin-bottom: 0px;
-    background: yellow;
+    background: $primary-color;
 }
