@@ -52,7 +52,7 @@
             <section class="categorias">
                 <div class="col-md-3 col-categoria">
 
-                    Ficara Categoria
+                    <h3>Categorias</h3>
                      <ul>
                         <li>Cachorros</li>
                         <li>Gatos</li>
@@ -63,8 +63,60 @@
             </section>
             <!--Coluna de produtos-->
             <section class="produtos">
+            
                 <div class="col-md-9 col-produto">
+                <h3>Produtos</h3>
                     <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
                                 <img src="img/pets1.jpg" alt="...">
