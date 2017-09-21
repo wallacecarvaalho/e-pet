@@ -2,6 +2,8 @@
 
 @section('conteudo')
 
+
+<section id="header">
     <div class="row">
    
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -14,20 +16,20 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
+                <section class="item active">
                     <img src="img/pets1.jpg" alt="...">
                     <div class="carousel-caption">
-                        ...
+                        <h1>Compra de animais</h1>
                     </div>
-                </div>
+                </section>
 
-                <div class="item">
+                <section class="item">
                     <img src="img/pets1.jpg" alt="...">
                     <div class="carousel-caption">
-                        ...
+                       <h1>E-Pet</h1>
                     </div>
-                </div>
-                ...
+                </section>
+               
             </div>
 
             <!-- Controls -->
@@ -41,7 +43,7 @@
             </a>
             </div>
         </div>
-
+</section>
 
 
     <div class="row">
@@ -62,10 +64,22 @@
             <!--Coluna de produtos-->
             <section class="produtos">
                 <div class="col-md-9 col-produto">
-                    Ficara os Produtos
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                    
                 </div>
-            </section>
+             </section>
+            
         </div>
     </div>
 @stop
