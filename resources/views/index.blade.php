@@ -2,7 +2,6 @@
 
 @section('conteudo')
 
-
 <section id="header">
     <div class="row">
    
@@ -19,7 +18,7 @@
                 <section class="item active">
                     <img src="img/pets1.jpg" alt="...">
                     <div class="carousel-caption">
-                        <h1>Compra de animais</h1>
+                        <h1></h1>
                     </div>
                 </section>
 
@@ -54,9 +53,9 @@
 
                     <h3>Categorias</h3>
                      <ul>
-                        <li>Cachorros</li>
-                        <li>Gatos</li>
-                        <li>Papagaio</li>
+                        <li class="lista-categorias"><a href="">Cachorros</a></li>
+                        <li class="lista-categorias"><a href="">Gatos</a></li>
+                        <li class="lista-categorias"><a href="">Papagaio</a></li>
                     </ul>
 
                 </div>
@@ -72,8 +71,48 @@
                                 <img src="img/pets1.jpg" alt="...">
                                 <div class="caption">
                                     <h3>Cachorro</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                    <p>R$2.000,00</p>
+                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>R$5.000,00</p>
+                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>R$5.000,00</p>
+                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>R$5.000,00</p>
+                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="img/pets1.jpg" alt="...">
+                                <div class="caption">
+                                    <h3>Cachorro</h3>
+                                    <p>R$5.000,00</p>
+                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
                                 </div>
                             </div>
                         </div>
@@ -83,47 +122,7 @@
                                 <div class="caption">
                                     <h3>Cachorro</h3>
                                     <p>...</p>
-                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-default" role="button">Button</a></p>
+                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
                                 </div>
                             </div>
                         </div>

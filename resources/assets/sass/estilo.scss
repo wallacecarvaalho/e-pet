@@ -1,21 +1,19 @@
 $primary-color: #aaf7d6;
 $secundary-color: lighten($primary-color, 10%);
-@mixin bordar-arredonda($val:50px) {
-    -webkit-border-radius: $val;
-    -moz-border-radiu: $val;
+ul {
+    -webkit-padding-start: 0px;
 }
 
 .fundo {
-    background: $secundary-color;
-}
-
-.col-categoria {
     background: white;
 }
 
+.col-categoria {
+    float: left;
+}
+
 .col-produto {
-    background: gray;
-    color: white;
+    color: black;
 }
 
 #header {
@@ -23,7 +21,6 @@ $secundary-color: lighten($primary-color, 10%);
     left: 10%;
     max-width: 1100px;
     padding-bottom: 10px;
-    @include bordar-arredonda;
 }
 
 .navbar.barra-navegacao {
@@ -33,4 +30,35 @@ $secundary-color: lighten($primary-color, 10%);
 
 #footer {
     background: $primary-color;
+}
+
+.thumbnail {
+    text-align: center;
+    border: none !important;
+    background: transparent !important;
+}
+
+.lista-categorias {
+    list-style-type: none;
+    border: 1px solid blue;
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 5px;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.lista-categorias:hover {
+    border: 1px solid blueviolet;
+}
+
+.lista-categorias a:hover {
+    text-decoration-line: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.lista-categorias a {
+    color: black;
 }
