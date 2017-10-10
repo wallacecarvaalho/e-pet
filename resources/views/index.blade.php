@@ -64,70 +64,21 @@
             <section class="produtos">
             
                 <div class="col-md-9 col-produto">
-                <h3>Produtos</h3>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>R$2.000,00</p>
-                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                    <h3>Produtos</h3>
+                        <div class="row">
+                        @foreach($produtos as $p)
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail">
+                                    <img src="img/pets1.jpg" alt="...">
+                                    <div class="caption">
+                                        <h3>{{$p->name}}</h3>
+                                        <p>R$ {{$p->preco}}</p>
+                                        <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                                    </div>
                                 </div>
                             </div>
+                        @endforeach
                         </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>R$5.000,00</p>
-                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>R$5.000,00</p>
-                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>R$5.000,00</p>
-                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>R$5.000,00</p>
-                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="img/pets1.jpg" alt="...">
-                                <div class="caption">
-                                    <h3>Cachorro</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
                 </div>
              </section>
             

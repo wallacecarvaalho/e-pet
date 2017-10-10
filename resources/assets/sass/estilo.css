@@ -1,3 +1,11 @@
+body {
+  overflow-x: hidden;
+}
+
+head {
+  overflow-x: hidden;
+}
+
 ul {
   -webkit-padding-start: 0px;
 }
@@ -17,8 +25,9 @@ ul {
 #header {
   margin: 0 auto;
   left: 10%;
-  max-width: 1100px;
+  max-width: 1140px;
   padding-bottom: 10px;
+  overflow-x: hidden;
 }
 
 .navbar.barra-navegacao {
@@ -51,12 +60,34 @@ ul {
   border: 1px solid blueviolet;
 }
 
-.lista-categorias a:hover {
+.lista-categorias:hover a {
+  color: black;
+}
+
+.lista-categorias:hover a:hover {
   text-decoration-line: none;
   font-size: 17px;
   transition: 0.3s;
 }
 
-.lista-categorias a {
-  color: black;
+.btn-logar {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.titulo {
+  margin-top: 15px 0;
+  text-align: center;
+}
+
+.navbar-opcao {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.navbar-user {
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
 }

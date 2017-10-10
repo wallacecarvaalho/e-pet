@@ -28,10 +28,13 @@
 
       <ul class="nav navbar-nav navbar-right">
         @if (!Auth::guest())
-          <li>Usuario: <span class="user"> {{ Auth::user()->name }} </span> </li>
-          <li><a href="/produtos">Listagem</a></li>
-          <li><a href="/produtos/novo">Novo</a></li>
-          <li><a href="/logout">Logout</a></li>
+          
+          <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
+          <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
+          <li><a class="navbar-opcao" href="/login ">Sair</a></li>
+          <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
+        @else
+          <li><a href="/login">Login</a></li>
         @endif
         
     </ul>
@@ -47,7 +50,7 @@
     <div class="row">
     <div class="col-md-6">
         <ul>
-            <li>Sobre nos</li>
+            <li>Sobre nós</li>
         </ul>
      </div> 
       <div class="col-md-6">
