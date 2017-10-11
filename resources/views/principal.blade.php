@@ -9,9 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="css/estilo.css">
-        <link rel="stylesheet" href="css/app.css">
-        
+        <link rel="stylesheet" href="/css/estilo.css">
+        <link rel="stylesheet" href="/css/app.css">
         </style>
     </head>
     <body>
@@ -27,17 +26,16 @@
     </div>
 
       <ul class="nav navbar-nav navbar-right">
-        @if (!Auth::guest())
-          
-          <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
-          <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
-          <li><a class="navbar-opcao" href="/login ">Sair</a></li>
-          <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
-        @else
-          <li><a href="/login">Login</a></li>
-        @endif
-        
-    </ul>
+          @if (!Auth::guest())
+            
+            <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
+            <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
+            <li><a class="navbar-opcao" href="/login ">Sair</a></li>
+            <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
+          @else
+            <li><a href="/login">Login</a></li>
+          @endif
+       </ul>
   
 
 
@@ -63,5 +61,5 @@
   </footer>
 
     </body>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
 </html>

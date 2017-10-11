@@ -34,7 +34,6 @@ ul {
     left: 10%;
     max-width: 1140px;
     padding-bottom: 10px;
-    overflow-x: hidden;
 }
 
 .navbar.barra-navegacao {
@@ -70,6 +69,7 @@ ul {
             text-decoration-line: none;
             font-size: 17px;
             transition: 0.3s;
+            color: black;
         }
     }
 }
@@ -96,4 +96,21 @@ ul {
 
 .col-sm-6.col-md-4.col-itens {
     padding-left: 0;
+}
+
+.col-itens a {
+    text-decoration: none;
+    color: #000;
+    &:hover {
+        color: black;
+        text-decoration: none;
+    }
+    &.btn-comprar {
+        color: white;
+    }
+    &>p.preco {
+        font-weight: bold;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif
+    }
 }

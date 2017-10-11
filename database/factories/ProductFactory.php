@@ -8,6 +8,7 @@ $factory->define(App\Produto::class, function (Faker $faker) {
         'name' => $faker->name,
         'descricao'=> $faker->word,
         'preco'=>$faker->randomNumber(4),
+        'imagem'=> $faker->imageUrl,
     ];
 
 });

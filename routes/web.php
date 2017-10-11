@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/produtos', 'ProdutoController@show');
-Route::get('/produtos/{id}', 'ProdutoController@find');
+Route::get('/produtos', 'ProdutoController@lista');
+Route::get('/produtos/{id}', 'ProdutoController@mostrar');

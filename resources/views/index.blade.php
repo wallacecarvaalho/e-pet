@@ -73,16 +73,20 @@
                         @else
                             @foreach($produtos as $p)
                                 <div class="col-sm-6 col-md-4 col-itens">
-                                    <div class="thumbnail">
-                                        <img src="img/pets1.jpg" alt="...">
-                                        <div class="caption">
-                                            <h3>{{$p->name}}</h3>
-                                            <p>R$ {{$p->preco}}</p>
-                                            <p><a href="#" class="btn btn-success" role="button">Comprar</a></p>
+                                    <a href="/produtos">
+                                        <div class="thumbnail">
+                                            <img src="{{$p->imagem}}" class="img-rounded" alt="...">
+                                            <div class="caption">
+                                                <h3>{{$p->name}}</h3>
+                                                <p class="preco">R$ {{$p->preco}}</p>
+                                                <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @endforeach
+                            
+                            
                         @endif
                         </div>
                 </div>
