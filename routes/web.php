@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'ProdutoController@lista');
 
-Route::get('/produtos', 'ProdutoController@lista');
-Route::get('/produtos/{id}', 'ProdutoController@mostrar');
+Route::get('/produtos/{id_produto}', 'ProdutoController@mostrar');

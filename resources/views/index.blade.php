@@ -73,7 +73,7 @@
                         @else
                             @foreach($produtos as $p)
                                 <div class="col-sm-6 col-md-4 col-itens">
-                                    <a href="/produtos">
+                                    <a href="/produtos/{{$p->id_produto}}>">
                                         <div class="thumbnail">
                                             <img src="{{$p->imagem}}" class="img-rounded" alt="...">
                                             <div class="caption">

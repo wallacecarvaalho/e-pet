@@ -28,20 +28,20 @@
                             Nenhum produto cadastrado.
                         </div>
                         @else
-                            @foreach($p as $produtos)
+            
                                 <div class="col-sm-6 col-md-4 col-itens">
                                     <a href="/produtos">
                                         <div class="thumbnail">
-                                            <img src="{{$produtos->imagem}}" class="img-rounded" alt="...">
+                                            <img src="{{$p->imagem}}" class="img-rounded" alt="...">
                                             <div class="caption">
-                                                <h3>{{$produtos->name}}</h3>
-                                                <p class="preco">R$ {{$produtos->preco}}</p>
+                                                <h3>{{$p->name}}</h3>
+                                                <p class="preco">R$ {{$p->preco}}</p>
                                                 <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-                            @endforeach
+        
                             
                             
                         @endif

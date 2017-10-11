@@ -15,9 +15,11 @@ class ProdutoController extends Controller
         return view('index')->with('produtos',$produtos);
 
     }
-    public function mostrar($id){
+    public function mostrar($id_produto){
         
-        $produto = DB::select('select * from produtos where id = ?', [$id]);
+        //$produto = Produto::where('id',$id)->get();
+        $produto = Produto::findOrFail($id_produto);
+
 
         if(empty($produto)){
             return "Esse produto não existe";
@@ -26,4 +28,7 @@ class ProdutoController extends Controller
         return view('buscar')->with('p',$produto);
 
     }
+
+   
+
 }
