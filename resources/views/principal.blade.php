@@ -30,7 +30,7 @@
             
             <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
             <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
-            <li><a class="navbar-opcao" href="/login ">Sair</a></li>
+            <li><a class="navbar-opcao" href="/">Sair</a></li>
             <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
           @else
             <li><a href="/login">Login</a></li>
