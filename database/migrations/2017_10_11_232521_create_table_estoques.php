@@ -15,7 +15,7 @@ class CreateTableEstoques extends Migration
     {
         Schema::create('estoques', function (Blueprint $table) {
             $table->increments('produto_id');
-            $table->foreign('produto_id')->references('id_produto')->on('produtos')->onDelete('cascade');
+            $table->foreign('produto_id')->references('produto_id')->on('produtos')->onDelete('cascade');
             $table->string('status');
             $table->integer('qtd');
             $table->timestamps();

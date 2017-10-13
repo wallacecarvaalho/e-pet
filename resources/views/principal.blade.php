@@ -27,11 +27,30 @@
 
       <ul class="nav navbar-nav navbar-right">
           @if (!Auth::guest())
+
+            @if(\App\User::ROLE_ADMIN)
+                 <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
+                                              onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                              Logout</a>
+              </li>
+                  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+            @else
             
-            <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
-            <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
-            <li><a class="navbar-opcao" href="/">Sair</a></li>
-            <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
+              <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
+              <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
+              <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
+                                              onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                              Logout</a>
+              </li>
+                  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+              <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
+          @endif
           @else
             <li><a href="/login">Login</a></li>
           @endif
