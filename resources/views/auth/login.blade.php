@@ -50,6 +50,7 @@
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
@@ -63,6 +64,18 @@
                             </div>
                         </div>
                     </form>
+                    <form class="form-inline" method="post" action="{{ url('/login/social/') }}">
+                            {{csrf_field()}}
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-danger" 
+                                value="google" name="social_type">Logar com o Google</button>
+    
+                             
+                                <button type="submit" class="btn btn-primary" 
+                                value="facebook" name="social_type">Logar com o Facebook</button>
+                            </div>
+                            
+                        </form>  
                 </div>
             </div>
         </div>

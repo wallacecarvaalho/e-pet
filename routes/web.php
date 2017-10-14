@@ -18,6 +18,9 @@ Route::get('/produtos/{id_produto}', 'ProdutoController@mostrar');
 
 Auth::routes();
 
+Route::post('/login/social','Auth\LoginController@loginSocial');
+Route::get('/login/callback','Auth\LoginController@loginCallBack');
+
 Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
       // Authentication Routes...
         $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -31,7 +34,7 @@ Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
         $this->post('password/reset', 'Auth\ResetPasswordController@reset');
         
         Route::group(['middleware' => 'can:admin'], function(){
-          $this->get('/dashboard', function(){
+            $this->get('/dashboard', function(){
           return view('dashboard');
         })->middleware('auth');
         });
