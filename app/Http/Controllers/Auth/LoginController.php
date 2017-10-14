@@ -50,6 +50,36 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return redirect($request->is('admin/*') ? '/admin/login' : '/');
+        return redirect($request->is('/admin/*') ? '/admin/login' : '/');
     }
+
+    protected function credentials(Request $request){
+
+        $data = $request->only($this->username(),'password');
+        //$data['phone'] = $data['email'];
+        $userNameKey = $this->userNameKey();
+        if($userNameKey != $this->username()){
+            $data[$this->userNameKey()] = $data[$this->username()];
+            unset($data[$this->username()]);
+        }
+        
+        return $data;
+    }
+
+
+    protected function userNameKey(){
+
+        $email = \Request::get('email');
+        $validator = \Validator::make([
+            'email'=>$email
+        ], ['email' => 'phone']);
+
+            if(is_numeric($email)){
+                return 'phone';
+            }
+            return 'email';
+
+        }
+
+
 }

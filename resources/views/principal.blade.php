@@ -28,11 +28,11 @@
       <ul class="nav navbar-nav navbar-right">
           @if (!Auth::guest())
 
-            @if(\App\User::ROLE_ADMIN)
+            @if(isAdmin()) 
                  <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
                                               onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">
-                                              Logout</a>
+                                              Sair</a>
               </li>
                   <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                               {{ csrf_field() }}
@@ -44,7 +44,7 @@
               <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
                                               onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">
-                                              Logout</a>
+                                              Sair</a>
               </li>
                   <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                               {{ csrf_field() }}
@@ -52,7 +52,7 @@
               <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
           @endif
           @else
-            <li><a href="/login">Login</a></li>
+            <li><a href="/login">Entrar</a></li>
           @endif
        </ul>
   

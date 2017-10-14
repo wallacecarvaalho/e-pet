@@ -29,9 +29,14 @@ Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
         $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
         $this->post('password/reset', 'Auth\ResetPasswordController@reset');
-        $this->get('/dashboard', function(){
+        
+        Route::group(['middleware' => 'can:admin'], function(){
+          $this->get('/dashboard', function(){
           return view('dashboard');
         })->middleware('auth');
+        });
+        
+       
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
