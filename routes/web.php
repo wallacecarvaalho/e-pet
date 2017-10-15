@@ -39,7 +39,12 @@ Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
         })->middleware('auth');
         });
         
-       
+        
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/search', 'SearchController@listar');
+
+Route::get('/carrinho', 'CarrinhoController@Mostrar');
+Route::post('/carrinho/salvar', 'CarrinhoController@Adicionar'); //Salva o produto no carrinho

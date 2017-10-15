@@ -28,7 +28,7 @@
                        <h1>E-Pet</h1>
                     </div>
                 </section>
-               
+
             </div>
 
             <!-- Controls -->
@@ -44,6 +44,17 @@
         </div>
 </section>
 
+    {{-- ========== SEARCH ========== --}}
+    <div class="container">
+        <form action="/search" method="GET" >
+            <div class="form-group">
+                <label class="form-control-label" for="pesquisar">Buscar: </label>
+                {{--  <input type="text" class="form-control" value="{{ isset($termoPesq) ? $termoPesq : '' }}" placeholder="Digite aqui o que deseja buscar">  --}}
+                <input type="text" class="form-control" id="pesquisar" name="termo" placeholder="Digite aqui o que deseja buscar">
+            </div>
+        </form>
+    </div>
+    {{-- ========== SEARCH ========== --}}
 
     <div class="row">
         <div class="container fundo">
