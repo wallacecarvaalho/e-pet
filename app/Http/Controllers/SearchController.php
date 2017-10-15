@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use App\Produto;
 use Illuminate\Http\Request;
+use App\Produto;
 
 class SearchController extends Controller
 {

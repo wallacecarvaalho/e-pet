@@ -14,10 +14,11 @@ class CreateCarrinhosTable extends Migration
     public function up()
     {
         Schema::create('carrinhos', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('produto_id')->references('produto_id')->on('produtos')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->integer('produto_id')->unsigned();
             $table->primary(['user_id', 'produto_id']);
+            $table->foreign('produto_id')->references('produto_id')->on('produtos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->integer('qtde');
             $table->string('imagem');

@@ -46,5 +46,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@listar');
 
-Route::get('/carrinho', 'CarrinhoController@Mostrar');
-Route::post('/carrinho/salvar', 'CarrinhoController@Adicionar'); //Salva o produto no carrinho
+Route::get('/carrinho', 'CarrinhoController@mostrar');
+Route::post('/carrinho/salvar', 'CarrinhoController@adicionar'); //Salva o produto no carrinho

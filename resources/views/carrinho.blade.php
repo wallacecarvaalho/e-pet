@@ -21,33 +21,21 @@
             <section class="produtos">
             
                 <div class="col-md-9 col-produto">
-                    <h3>Produtos</h3>
-                        <div class="row">
-                        @if(empty($produtos_pesq) || $produtos_pesq == '[]')
-                        <div class="alert alert-danger">
-                            Nenhum produto encontrado.
+                    {{--  <div class="jumbotron">
+                        <h2>Seu carrinho está vazio!</h2>
+                        <p>Para adicionar produtos em seu carrinho, clique no botão "Comprar" no produto desejado.</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                    </div>  --}}
+                    
+                    <div class="container">
+                        <div class="page-header">
+                            <h1>Seu carrinho está vazio! :(</h1>
                         </div>
-                        @else
-                            @foreach($produtos_pesq as $p)
-                                <div class="col-sm-6 col-md-4 col-itens">
-                                    <a href="/produtos/{{$p->produto_id}}>">
-                                        <div class="thumbnail">
-                                            <img src="{{$p->imagem}}" class="img-rounded" alt="...">
-                                            <div class="caption">
-                                                <h3>{{$p->name}}</h3>
-                                                <p class="preco">R$ {{$p->preco}}</p>
-                                                <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-                            
-                            
-                        @endif
-                        </div>
+                        <p>Para adicionar produtos em seu carrinho, clique no botão "Comprar" no produto desejado.</p>
+                        <a href="/" class="btn btn-success">Voltar</a>
+                    </div>
                 </div>
-             </section>
+            </section>
             
         </div>
     </div>

@@ -40,7 +40,7 @@
             @else
             
               <li><a class="navbar-opcao" href="/produtos">Compras</a></li>
-              <li><a class="navbar-opcao" href="/produtos/novo">Meu carrinho</a></li>
+              <li><a class="navbar-opcao" href="/carrinho">Meu carrinho</a></li>
               <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
                                               onclick="event.preventDefault();
                                                       document.getElementById('logout-form').submit();">

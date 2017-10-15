@@ -44,7 +44,7 @@
         </div>
 </section>
 
-    {{-- ========== SEARCH ========== --}}
+    <!-- Search -->>
     <div class="container">
         <form action="/search" method="GET" >
             <div class="form-group">
@@ -54,7 +54,6 @@
             </div>
         </form>
     </div>
-    {{-- ========== SEARCH ========== --}}
 
     <div class="row">
         <div class="container fundo">
