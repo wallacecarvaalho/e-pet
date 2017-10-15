@@ -31,7 +31,7 @@
             
                                 <div class="col-sm-6 col-md-4 col-itens">
                                     <a href="/produtos">
-                                        <div class="thumbnail">
+                                        <div class="thumbnail produto-descricao">
                                             <img src="{{$p->imagem}}" class="img-rounded" alt="...">
                                             <div class="caption">
                                                 <h3>{{$p->name}}</h3>

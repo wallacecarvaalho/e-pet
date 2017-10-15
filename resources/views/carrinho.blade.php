@@ -4,19 +4,7 @@
 
     <div class="row">
         <div class="container fundo">
-            <!--Coluna de categorias-->
-            <section class="categorias">
-                <div class="col-md-3 col-categoria">
-
-                    <h3>Categorias</h3>
-                     <ul>
-                        <li class="lista-categorias"><a href="">Cachorros</a></li>
-                        <li class="lista-categorias"><a href="">Gatos</a></li>
-                        <li class="lista-categorias"><a href="">Papagaio</a></li>
-                    </ul>
-
-                </div>
-            </section>
+            
             <!--Coluna de produtos-->
             <section class="produtos">
             

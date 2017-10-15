@@ -44,16 +44,7 @@
         </div>
 </section>
 
-    <!-- Search -->>
-    <div class="container">
-        <form action="/search" method="GET" >
-            <div class="form-group">
-                <label class="form-control-label" for="pesquisar">Buscar: </label>
-                {{--  <input type="text" class="form-control" value="{{ isset($termoPesq) ? $termoPesq : '' }}" placeholder="Digite aqui o que deseja buscar">  --}}
-                <input type="text" class="form-control" id="pesquisar" name="termo" placeholder="Digite aqui o que deseja buscar">
-            </div>
-        </form>
-    </div>
+    
 
     <div class="row">
         <div class="container fundo">

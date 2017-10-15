@@ -48,8 +48,7 @@ ul {
   border-radius: 10px;
   margin: 5px;
   text-align: center;
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
 }
 
 .lista-categorias:hover {
@@ -61,10 +60,8 @@ ul {
 }
 
 .lista-categorias:hover a:hover {
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
   font-size: 17px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   color: black;
 }
@@ -147,4 +144,3 @@ ul {
     display: block;
   }
 }
-
