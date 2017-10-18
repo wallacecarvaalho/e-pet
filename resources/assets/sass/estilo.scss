@@ -75,7 +75,7 @@ ul {
 }
 
 // Carrinho
-.item-carrinho{
+.item-carrinho {
     width: 20% !important;
 }
 
@@ -101,8 +101,8 @@ ul {
     float: right !important;
     margin: 10px 0px !important;
 }
-// Fim Carrinho
 
+// Fim Carrinho
 .btn-logar {
     width: 100%;
     margin: 20px 0;
@@ -163,6 +163,56 @@ ul {
         font-weight: bold;
         font-size: 20px;
         font-family: Arial, Helvetica, sans-serif
+    }
+}
+
+
+/*Tela descricao*/
+
+.img-descricao {
+    padding: 2px;
+    background-color: #363636;
+    box-shadow: 2px 2px 2px #363636;
+    -webkit-box-shadow: 2px 2px 2px #363636;
+    -moz-box-shadow: 2px 2px 2px #363636;
+}
+
+.col-descricao {
+    &>.preco {
+        font-size: 29px;
+        font-family: Arial, Helvetica, sans-serif;
+        border-bottom: 1px solid #e5e5e5;
+        font-weight: bold;
+    }
+    &>.descricao {
+        font-size: 40px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    &>p>.btn.btn-success.btn-comprar {
+        width: 300px;
+        height: 50px;
+        vertical-align: middle;
+        font-size: 20px;
+    }
+    &>.status {
+        border-bottom: 1px solid #e5e5e5;
+        color: #2ab27b;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+    &>.caracteristicas {
+        color: red;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &>.img-rounded.img-descricao {
+        width: 800px;
+        padding: 5px;
+        background-color: #363636;
+        box-shadow: 2px 2px 2px #363636;
+        -webkit-box-shadow: 2px 2px 2px #363636;
+        -moz-box-shadow: 2px 2px 2px #363636;
     }
 }
 

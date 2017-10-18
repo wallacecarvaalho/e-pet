@@ -20,6 +20,8 @@ class CreateTableProdutos extends Migration
             $table->string('descricao');
             $table->string('imagem');
             $table->decimal('preco',6,2);
+            $table->string('status');
+            $table->integer('qtd');
             $table->string('categoria');
             $table->timestamps();
         

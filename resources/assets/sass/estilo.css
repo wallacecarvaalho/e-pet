@@ -66,6 +66,33 @@ ul {
   color: black;
 }
 
+.item-carrinho {
+  width: 20% !important;
+}
+
+.carrinho-total {
+  margin: 0px !important;
+  color: #41b941;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.carrinho-total-texto {
+  text-align: right;
+  font-size: 24px;
+}
+
+.btn-continuar-comprando {
+  margin: 10px 0px !important;
+  background-color: orange;
+  color: white;
+}
+
+.btn-pagar {
+  float: right !important;
+  margin: 10px 0px !important;
+}
+
 .btn-logar {
   width: 100%;
   margin: 20px 0;
@@ -133,6 +160,57 @@ ul {
   font-weight: bold;
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Tela descricao*/
+.img-descricao {
+  padding: 2px;
+  background-color: #363636;
+  box-shadow: 2px 2px 2px #363636;
+  -webkit-box-shadow: 2px 2px 2px #363636;
+  -moz-box-shadow: 2px 2px 2px #363636;
+}
+
+.col-descricao > .preco {
+  font-size: 29px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: bold;
+}
+
+.col-descricao > .descricao {
+  font-size: 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.col-descricao > p > .btn.btn-success.btn-comprar {
+  width: 300px;
+  height: 50px;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.col-descricao > .status {
+  border-bottom: 1px solid #e5e5e5;
+  color: #2ab27b;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.col-descricao > .caracteristicas {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.col-descricao > .img-rounded.img-descricao {
+  width: 800px;
+  padding: 5px;
+  background-color: #363636;
+  box-shadow: 2px 2px 2px #363636;
+  -webkit-box-shadow: 2px 2px 2px #363636;
+  -moz-box-shadow: 2px 2px 2px #363636;
 }
 
 #footer {
