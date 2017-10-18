@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
          Laravel\Socialite\SocialiteServiceProvider::class,
+         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...

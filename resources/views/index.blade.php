@@ -80,7 +80,15 @@
                                             <div class="caption">
                                                 <h3>{{$p->name}}</h3>
                                                 <p class="preco">R$ {{$p->preco}}</p>
-                                                <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>
+
+                                                <form method="POST" action="{{ route('carrinho.adicionar') }}">
+                                                    
+                                                    {{ csrf_field() }}
+                                                    <input type="hidden" name="id" value="{{ $p->id }}">
+                                                    <button class="btn btn-success btn-comprar">Comprar</button>
+                                                    {{--  <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>  --}}
+                                                </form>
+
                                             </div>
                                         </div>
                                     </a>

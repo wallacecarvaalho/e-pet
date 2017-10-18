@@ -46,5 +46,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@listar');
 
-Route::get('/carrinho', 'CarrinhoController@mostrar');
-Route::post('/carrinho/salvar', 'CarrinhoController@adicionar'); //Salva o produto no carrinho
+//Route::get('/carrinho', 'CarrinhoController@mostrar');
+//Route::post('/carrinho/salvar/{id_produto}',['as' => 'carrinho.salvar', 'uses' => 'CarrinhoController@salvar']); //Salva o produto no carrinho
+
+
+Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
+Route::get('/carrinho/adicionar', function(){
+  return redirect()->route('index');
+}); //Pra caso o usuário digite diretamente na barra de endereços /carrinho/adicionar
+Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
+route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');

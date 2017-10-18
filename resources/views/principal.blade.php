@@ -104,4 +104,9 @@
 
     </body>
     <script src="/js/app.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+</script>
 </html>

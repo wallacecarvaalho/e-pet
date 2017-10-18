@@ -74,6 +74,35 @@ ul {
     }
 }
 
+// Carrinho
+.item-carrinho{
+    width: 20% !important;
+}
+
+.carrinho-total {
+    margin: 0px !important;
+    color: rgb(65, 185, 65);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.carrinho-total-texto {
+    text-align: right;
+    font-size: 24px;
+}
+
+.btn-continuar-comprando {
+    margin: 10px 0px !important;
+    background-color: orange;
+    color: white;
+}
+
+.btn-pagar {
+    float: right !important;
+    margin: 10px 0px !important;
+}
+// Fim Carrinho
+
 .btn-logar {
     width: 100%;
     margin: 20px 0;
