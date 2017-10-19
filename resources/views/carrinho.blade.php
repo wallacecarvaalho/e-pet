@@ -17,7 +17,7 @@
                         <strong>{{ Session::get('mensagem-falha') }}</strong>
                     </div>
                 @endif
-
+                
                 @if($carrinhos->count())
                     @php
                         $total_carrinho = 0;
@@ -38,7 +38,6 @@
                 @forelse ($carrinhos as $carrinho)
                     {{--  <h5 class="col-sm-12 col-md-6 col-lg-6">Pedido: {{ $carrinho->id }} </h5>
                     <h5 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h5>  --}}
-
                     @foreach ($carrinho->carrinho_produtos as $carrinho_produto)
                         @php
                             $num_itens++;
@@ -128,6 +127,7 @@
             </div>
         </div>
     </div>
+    
     <form action="{{ route('carrinho.remover') }}" id="form-remover-produto" method="POST">
         {{ csrf_field() }}
         {{ method_field('DELETE') }}

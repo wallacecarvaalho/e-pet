@@ -32,8 +32,14 @@
                                     <p class="status">{{$p->status}}</p>
                                     <p class="preco">R$ {{$p->preco}}</p>
                                     <p class="caracteristicas">Caracteristicas</p>
-                                    <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>
-                                  </div>  
+                                    
+                                    <form method="POST" action="{{ route('carrinho.adicionar') }}">
+                                        
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id" value="{{ $p->id }}">
+                                        <button class="btn btn-success btn-comprar">Comprar</button>
+                                    </form>
+                                  </div>
                                
                             
                             

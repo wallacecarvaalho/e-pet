@@ -19,9 +19,9 @@ class CreateCarrinhoProdutosTable extends Migration
             $table->integer('produto_id')->unsigned();
             $table->enum('status', ['RE', 'PA', 'CA']); //Reservado, Pago, Cancelado
             $table->decimal('valor', 6, 2)->default(0);
-            $table->foreign('carrinho_id')->references('id')->on('carrinhos');
+            $table->foreign('carrinho_id')->references('id')->on('carrinhos')->onDelete('cascade');
             // $table->foreign('produto_id')->references('produto_id')->on('produtos');
-            $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -45,7 +45,7 @@ class CarrinhoController extends Controller
             'status' => 'RE'
         ]);
 
-        if( empty($idpedido) ){ 
+        if( empty($idcarrinho) ){ 
             $carrinho_novo = Carrinho::create([
                 'user_id' => $idusuario,
                 'status' => 'RE'
@@ -72,7 +72,7 @@ class CarrinhoController extends Controller
         $idcarrinho              = $req->input('carrinho_id');
         $idproduto               = $req->input('produto_id');
         $remove_apenas_item      = (boolean)$req->input('item');
-        $idusuario               = $Auth::id();
+        $idusuario               = Auth::id();
 
         $idcarrinho = Carrinho::consultaId([ //Consulta redundante.. por segurança mesmo
             'id'        => $idcarrinho,
@@ -104,15 +104,16 @@ class CarrinhoController extends Controller
 
         CarrinhoProduto::where($where_produto)->delete();
 
-
+        // Verifica se ainda há itens no carrinho.
         $check_carrinho = CarrinhoProduto::where([
             'carrinho_id' => $produto->carrinho_id
-        ])->exists(); //Retorna boolean. Se existir registro, retorna true
+        ])->exists(); // Se existir registro retorna true
 
+        //Caso não, apaga da tabela Carrinho também
         if ( !$check_carrinho ){
             Carrinho::where([
                 'id' => $produto->carrinho_id
-            ]);
+            ])->delete();
         }
 
         $req->session()->flash('mensagem-sucesso', 'Produto removido do carrinho com sucesso!');
