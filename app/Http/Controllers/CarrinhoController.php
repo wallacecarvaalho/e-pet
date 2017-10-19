@@ -45,7 +45,7 @@ class CarrinhoController extends Controller
             'status' => 'RE'
         ]);
 
-        if( empty($idpedido) ){ //Caso não exista, vai criar um
+        if( empty($idpedido) ){ 
             $carrinho_novo = Carrinho::create([
                 'user_id' => $idusuario,
                 'status' => 'RE'
@@ -80,7 +80,6 @@ class CarrinhoController extends Controller
             'status'    => 'RE' //Reservado
         ]);
 
-        // Verifica se a variável está vazia
         if( empty($idcarrinho) ) {
             $req->session()->flash('mensagem-falha', 'Pedido não encontrado!');
             return redirect()->route('carrinho.index');
@@ -92,7 +91,6 @@ class CarrinhoController extends Controller
             'produto_id'    => $idproduto
         ];
 
-        //Sempre vai remover a partir do último inserido
         $produto = CarrinhoProduto::where($where_produto)->orderBy('id', 'desc')->first();
         if( empty($produto->id) ){
             $req->session()->flash('mensagem-falha', 'Produto não encontrado no carrinho!');
@@ -111,7 +109,6 @@ class CarrinhoController extends Controller
             'carrinho_id' => $produto->carrinho_id
         ])->exists(); //Retorna boolean. Se existir registro, retorna true
 
-        //Se for falso
         if ( !$check_carrinho ){
             Carrinho::where([
                 'id' => $produto->carrinho_id
@@ -124,32 +121,4 @@ class CarrinhoController extends Controller
 
 
     }
-
-
-    // public function mostrar(){
-    //     $idUserLogado = Auth::id();
-    //     $item = DB::table('carrinhos')->where('user_id', '=', $idUserLogado)->get();
-
-    //     // Com a linha abaixo ñ deu certo, ñ sei porque :(
-    //     //$item = Carrinho::where('user_id', '=', $idUserLogado)->get();
-        
-    //     return view('carrinho', compact('item'));
-    // }
-
-    // public function salvar($produto_id){
-    //     $produto = Produto::find($produto_id);
-        
-    //     $dados['user_id'] = Auth::id();
-    //     $dados['produto_id'] = $produto_id;
-    //     $dados['qtde'] = 1;
-    //     $dados['imagem'] = 'REMOVER';
-    //     $dados['preco_unitario'] = $produto->preco;
-    //     $dados['preco_total'] = $produto->preco;
-    //     Carrinho::create($dados);
-
-    //     $idUserLogado = Auth::id();
-    //     $item = DB::table('carrinhos')->where('user_id', '=', $idUserLogado)->get();
-        
-    //     return view('carrinho', compact('item'));
-    // }
 }

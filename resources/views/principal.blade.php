@@ -105,6 +105,7 @@
     </body>
     <script src="/js/app.js"></script>
     <script src="/js/function.js"></script>
+    <script src="/js/carrinho.js"></script>
     <script>
       
 </script>
