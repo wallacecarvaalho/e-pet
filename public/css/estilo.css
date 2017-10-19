@@ -31,7 +31,7 @@ ul {
 
 .navbar.barra-navegacao {
   margin-bottom: 0px;
-  background: #aaf7d6;
+  background: #41d3fc;
 }
 
 .thumbnail {
@@ -119,11 +119,11 @@ ul {
 }
 
 .navbar-toggle.collapsed {
-  background-color: #aaf7d6;
+  background-color: #41d3fc;
 }
 
 .navbar-default .navbar-toggle:hover {
-  background-color: #d9fbec !important;
+  background-color: #73dffd !important;
 }
 
 #pesquisar {
@@ -218,7 +218,7 @@ ul {
 }
 
 #footer {
-  background: #aaf7d6;
+  background: #41d3fc;
 }
 
 @media screen and (max-width: 768px) {

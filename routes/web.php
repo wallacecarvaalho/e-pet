@@ -1,5 +1,5 @@
 <?php
-
+use App\PagSeguro\PagSeguro;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +56,41 @@ Route::get('/carrinho/adicionar', function(){
 }); //Pra caso o usuário digite diretamente na barra de endereços /carrinho/adicionar
 Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
 route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
+
+Route::get('/checkout/{id}',function($id){
+    $data = [];
+    $data['email'] = 'wallace.c.aleixo00@gmail.com';
+    $data['token'] = '9A8FB0217179448C81E3ABFB7DF083E4';
+    $response = (new PagSeguro)->request(PagSeguro::SESSION_SANDBOX,$data);
+
+    $session = new \SimpleXMLElement($response->getContents());
+    $session = $session->id;
+
+    $amount = number_format(521.50,2,'.','');
+
+    return view('layouts.store.checkout', compact('id','session','amount'));
+});
+
+Route::post('/checkout/{id}',function($id){
+    $data = request()->all();
+    unset($data['_token']);
+    $data['email'] = 'wallace.c.aleixo00@gmail.com';
+    $data['token'] = '9A8FB0217179448C81E3ABFB7DF083E4';
+    $data['paymentMode'] = 'default';
+    $data['paymentMethod'] = 'creditCard';
+    $data['receiverEmail'] = 'wallace.c.aleixo00@gmail.com';
+    $data['currency'] = 'BRL';
+  /*$key = 1;
+    @foreach($pedido->products as produto){
+      $data['itemId'.$key] = $produto->id;
+      $data['itemDescription.$key'] = $produto->title;
+      $data['itemAmount'.$key] = number_format($produto->value,2,'','.');
+      $data['itemQuantity'.$key] = $produto->qtd;
+      
+      $key++;
+    }*/
+
+    $data['senderAreaCode'] = substr($data['senderPhone'],0,2);
+    $data['senderPhone'] = substr($data['senderPhone'],2,strlen($data['senderPhone']));
+    return $data;
+});
