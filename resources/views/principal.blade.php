@@ -107,9 +107,10 @@
 
     </body>
 
+
     <script src="/js/app.js"></script> 
     @yield('script')
-    <script src="/js/function.js"></script>  
-       
-  
+    <script src="/js/function.js"></script> 
+    <script src="/js/carrinho.js"></script> 
+
 </html>

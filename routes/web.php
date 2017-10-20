@@ -52,10 +52,10 @@ Route::get('/search', 'SearchController@listar');
 
 Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
 Route::get('/carrinho/adicionar', function(){
-  return redirect()->route('index');
+  return redirect()->route('carrinho.index');
 }); //Pra caso o usuário digite diretamente na barra de endereços /carrinho/adicionar
 Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
-route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
+Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
 
 Route::get('/checkout/{id}',function($id){
     $data = [];
