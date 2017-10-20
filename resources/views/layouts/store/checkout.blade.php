@@ -13,34 +13,38 @@
       {{ csrf_field() }}
 
         <input type="hidden" name="itemId1" value="0001">
-        <input type="hidden" name="itemDescrition1" value="Produto PagSeguro1">
+        <input type="hidden" name="itemDescription1" value="Produto PagSeguroI">
         <input type="hidden" name="itemAmount1" value="250.00">
-        <input type="hidden" name="itemQuantity1" value="2"> 
+        <input type="hidden" name="itemQuantity1" value="2">
 
         <div class="tab-content">
+
             <div class="tab-pane active" role="tabpanel" id="step1" >
+
+                <input type="hidden" name="senderHash" id="senderHash">
+
                 <p>Preencha suas informaçoes</p>
                 <div class="form-group col-md-12">
                     <div class="row">
                          <div class="form-group col-md-12">
                             <label for="senderName">Nome Completo</label>
-                            <input type="text" class="form-control" name="senderName">
+                            <input type="text" class="form-control" id="senderName" name="senderName" value="{{Auth::user()->name}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="senderCPF">CPF</label>
-                            <input type="text" class="form-control" name="senderCPF">
+                            <input type="text" class="form-control" id="senderCPF" name="senderCPF">
                         </div>
                          <div class="form-group col-md-6">
                             <label for="senderEmail">E-mail</label>
-                            <input type="text" class="form-control" name="senderEmail">
+                            <input type="text" class="form-control" id="senderEmail" name="senderEmail" value="{{Auth::user()->email}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6 col-md-offset-3">
                             <label for="senderPhone">Telefone</label>
-                            <input type="text" class="form-control" name="senderPhone">
+                            <input type="text" class="form-control" id="senderPhone" name="senderPhone" value="{{Auth::user()->phone}}">
                         </div>
                     </div>
                 </div>
@@ -62,11 +66,11 @@
                          <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="shippingAddressNumber">N°</label>
-                                <input type="text" class="form-control" name="shippingAddressNumber">
+                                <input type="text" class="form-control" id="shippingAddressNumber" name="shippingAddressNumber">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="shippingAddressComplement">Complemento</label>
-                                <input type="text" class="form-control" name="shippingAddressComplement">
+                                <input type="text" class="form-control" id="shippingAddressComplement" name="shippingAddressComplement">
                             </div>
                         </div>
                         <div class="row">
@@ -85,7 +89,7 @@
                                 <input type="text" class="form-control" id="shippingAddressState" name="shippingAddressState">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="hidden" name="shippingCost" value="21.50">
+                                <input type="hidden" name="shippingCost" id="shippingCost" value="21.50">
                                 <label for="shippingType">Forma de Entrega</label>
                                 <select name="shippingType" id="shippingType" class="form-control">
                                     <option disabled selected>Forma de Entrega</option>
@@ -99,6 +103,10 @@
             </div>
             <div class="tab-pane" id="step3" role="tabpanel">
                 <p>Preencha os Dados para o Pagamento</p>
+                
+                <input type="hidden" name="creditCardToken" id="creditCardToken">
+                <input type="hidden" name="installmentValue" id="installmentValue">
+
                     <div class="form-group col-md-12">
                         <div class="row">
                             <div class="form-group col-md-9">
@@ -122,19 +130,100 @@
                             </div>
                              <div class="form-group col-md-4">
                                 <label for="expirationYear">Numero do Cartao</label>
-                                <select name="installmentQuantity"  class="form-control" id="installmentQuantity">
+                                <select name="installmentQuantity"  class="form-control parcelamento-opt" id="installmentQuantity">
                                     <option disabled selected>Parcelamento</option>
                                 </select>
+                                
                             </div>
+                            <p>Dados do dono do cartão</p>
+                                <p>
+                                    <input type="checkbox" id="copy_from_me">
+                                    <label for="copy_from_me">Copiar seus dados</label>
+                                </p>     
                             
-                            <input type="submit" class="btn btn-success" value="pagar">
-                        </div>
+                                <div id="holder_data">
+                                            <div class="form-group col-md-12">
+                                                <div class="row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="creditCardHolderName">Nome Completo</label>
+                                                        <input type="text" class="form-control" name="creditCardHolderName" id="creditCardHolderName" value="{{Auth::user()->name}}">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="creditCardHolderCPF">CPF</label>
+                                                        <input type="text" class="form-control" id="creditCardHolderCPF" name="creditCardHolderCPF">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="creditCardHolderPhone">Telefone</label>
+                                                        <input type="text" class="form-control" id="creditCardHolderPhone" name="creditCardHolderPhone" value="{{Auth::user()->phone}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                </div>
+                                                <div class="row">   
+                                                    <div class="form-group col-md-2">
+                                                        <label for="creditCardHolderBirthDate">Data de Nascimento</label>
+                                                        <input type="date" class="form-control" id="creditCardHolderBirthDate" name="creditCardHolderBirthDate">
+                                                    </div>
+                                                </div>
+                                <p>Endereço da fatura</p>
+                                <p>
+                                    <input type="checkbox" id="copy_from_shipping">
+                                    <label for="copy_from_shipping">Copiar do Endereço de Entrega</label>
+                                </p>     
+                            
+                                <div id="shipping_data">
+
+                                    <div class="form-group col-md-12">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressPostalCode">Cep</label>
+                                                <input type="text" class="form-control" id="billingAddressPostalCode" name="billingAddressPostalCode">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressStreet">Rua</label>
+                                                <input type="text" class="form-control" id="billingAddressStreet" name="billingAddressStreet">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressNumber">N°</label>
+                                                <input type="text" class="form-control" id="billingAddressNumber" name="billingAddressNumber">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressComplement">Complemento</label>
+                                                <input type="text" class="form-control" id="billingAddressComplement" name="billingAdressComplement">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressDistrict">Bairro</label>
+                                                <input type="text" class="form-control" id="billingAddressDistrict" name="billingAddressDistrict">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressCity">Cidade</label>
+                                                <input type="text" class="form-control" id="billingAddressCity" name="billingAddressCity">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="billingAddressState">Estado</label>
+                                                <input type="text" class="form-control" id="billingAddressState" name="billingAddressState">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                    <input type="submit" class="btn btn-success" value="pagar">
+                                </div>
                         
                     </div>
             </div>   
         </div>
     </form>
     <div id="payment_methods" class="text-center">
+    
     
     </div>
 
@@ -151,6 +240,8 @@
             amount: '{{ $amount }}',
          }
          PagSeguroDirectPayment.setSessionId('{!! $session !!}');
+
+
                 
         pagSeguro.getPaymentMethods(paymentData.amount)
         .then(function(urls){
@@ -162,6 +253,12 @@
             $('#payment_methods').html(html);
         });
 
+        $('#senderName').on('change', function () {
+            pagSeguro.getSenderHash().then(function(data) {
+                $('#senderHash').val(data);
+            })
+        });
+
     $('#cardNumber ').on('keyup', function() {
         if ($(this).val().length >= 6) {
             let bin = $(this).val();
@@ -169,7 +266,20 @@
                 .then(function(res) {
                     paymentData.brand = res.result.brand.name;
                     $('#card_brad').html('<img src="'+res.url+'" >')
-                })
+                    return pagSeguro.getInstallments(paymentData.amount, paymentData.brand)
+                                                    
+                }).then(function(res){
+                                        let html = '';
+                                        res.forEach(function(item){
+                                            html += '<option value="'+item.quantity+'">'+item.quantity+' x R$ '+item.installmentAmount+' - total R$'+item.totalAmount+'</option>'
+                                        });     
+                                        $('#installmentQuantity').html(html);       
+                                        $('#installmentValue').val(res[0].installmentAmount); 
+                                        $('#installmentQuantity').on('change', function(){
+                                            let value = res[$('#installmentQuantity').val() - 1].installmentAmount;
+                                             $('#installmentValue').val(value); 
+                                        });               
+                                    });
         }
     });
 
@@ -177,15 +287,70 @@
         e.preventDefault();
         let params = {
             cardNumber: $('#cardNumber ').val(),
-            cvv: $('#cvv').val('#cvv'),
+            cvv: $('#cvv').val(),
             cardNumber: $('#cardNumber').val(),
             expirationMonth: $('#expirationMonth').val(),
             expirationYear: $('#expirationYear').val(),
             brand: paymentData.brand,
         }
-        console.log(params);
+       pagSeguro.createCardToken(params)
+            .then(function(token){
+                $('#creditCardToken').val(token);
+                let url = $('#form').attr('action');
+                let data = $('#form').serialize();
+                $.post(url, data)
+            });
     });
         
+        let toggle = function (element, verification,callbackShow, callbackHide){
+            if(!verification.is(':checked')){
+                $(element).show();
+                callbackShow();
+            }else{
+                $(element).hide();
+                callbackHide();
+            }
+        }
+
+    let holderShow = function () {
+        $('#creditCardHolderName').val('');
+        $('#creditCardHolderCPF').val('');
+        $('#creditCardHolderPhone').val('');
+    }
+    let holderHide = function () {
+        $('#creditCardHolderName').val($('#senderName').val());
+        $('#creditCardHolderCPF').val($('#senderCPF').val());
+        $('#creditCardHolderPhone').val($('#senderPhone').val());
+    }
+    let shippingShow = function () {
+        $('#billingAddresPostalCode').val('');
+        $('#billingAddressStreet').val('');
+        $('#billingAddressNumber').val('');
+        $('#billingAddressComplement').val('');
+        $('#billingAddressDistrict').val('');
+        $('#billingAddressCity').val('');
+        $('#billingAddressState').val('');
+    }
+    let shippingHide = function () {
+        $('#billingAddressPostalCode').val($('#shippingAddressPostalCode').val());
+        $('#billingAddressStreet').val($('#shippingAddressStreet').val());
+        $('#billingAddressNumber').val($('#shippingAddressNumber').val());
+        $('#billingAddressComplement').val($('#shippingAddressComplement').val());
+        $('#billingAddressDistrict').val($('#shippingAddressDistrict').val());
+        $('#billingAddressCity').val($('#shippingAddressCity').val());
+        $('#billingAddressState').val($('#shippingAddressState').val());
+    }
+
+        toggle('#holder_data',$(this),holderShow,holderHide);
+        toggle('#shipping_data',$(this),shippingShow,shippingHide);
+
+        $('#copy_from_me').on('change', function(){
+            toggle('#holder_data',$(this),holderShow,holderHide)
+        });
+
+         $('#copy_from_shipping').on('change', function(){
+            toggle('#shipping_data',$(this),shippingShow,shippingHide)
+        });
 
 </script>
 

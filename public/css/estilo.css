@@ -217,6 +217,13 @@ ul {
   -moz-box-shadow: 2px 2px 2px #363636;
 }
 
+/*Tela de Pagamento*/
+
+.parcelamento-opt {
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #footer {
   background: #41d3fc;
 }

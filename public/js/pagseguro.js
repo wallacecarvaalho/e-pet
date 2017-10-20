@@ -34,5 +34,34 @@ const pagSeguro = {
                 }
             });
         });
+    },
+    createCardToken: function(params) {
+        return new Promise(function(resolve, reject) {
+            params.success = function(res) {
+                resolve(res.card.token);
+            }
+
+            PagSeguroDirectPayment.createCardToken(params);
+
+        });
+    },
+
+    getInstallments: function(amount, brand) {
+        return new Promise(function(resolve, reject) {
+            PagSeguroDirectPayment.getInstallments({
+                amount: amount,
+                maxInstallmentNoInterest: 0,
+                brand: brand,
+                success: function(res) {
+                    resolve(res.installments[brand]);
+                }
+            });
+        });
+    },
+    getSenderHash: function() {
+        return new Promise(function(resolve, reject) {
+            let data = PagSeguroDirectPayment.getSenderHash();
+            resolve(data);
+        });
     }
 }

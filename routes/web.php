@@ -33,10 +33,10 @@ Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
         $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
         $this->post('password/reset', 'Auth\ResetPasswordController@reset');
         
-        Route::group(['middleware' => 'can:admin'], function(){
-            $this->get('/dashboard', function(){
-          return view('dashboard');
-        })->middleware('auth');
+          Route::group(['middleware' => 'can:admin'], function(){
+              $this->get('/dashboard', function(){
+            return view('dashboard');
+          })->middleware('auth');
         });
         
         
@@ -78,7 +78,6 @@ Route::post('/checkout/{id}',function($id){
     $data['token'] = '9A8FB0217179448C81E3ABFB7DF083E4';
     $data['paymentMode'] = 'default';
     $data['paymentMethod'] = 'creditCard';
-    $data['receiverEmail'] = 'wallace.c.aleixo00@gmail.com';
     $data['currency'] = 'BRL';
   /*$key = 1;
     @foreach($pedido->products as produto){
@@ -92,5 +91,17 @@ Route::post('/checkout/{id}',function($id){
 
     $data['senderAreaCode'] = substr($data['senderPhone'],0,2);
     $data['senderPhone'] = substr($data['senderPhone'],2,strlen($data['senderPhone']));
+
+    $data['creditCardHolderAreaCode'] = substr($data['creditCardHolderPhone'],0,2);
+    $data['creditCardHolderPhone'] = substr($data['creditCardHolderPhone'],2,strlen($data['creditCardHolderPhone']));
+    $data['installmentValue'] = number_format($data['installmentValue'],2,'.','');
+    $data['shippingAddressCountry'] = 'BR';
+    $data['billingAddressCountry'] = 'BR';
+  
+    try{
+       $response = (new PagSeguro)->request(PagSeguro::CHECKOUT_SANDBOX,$data);
+    }catch(\Exception $e){
+        dd($e->getMessage());
+    }
     return $data;
 });

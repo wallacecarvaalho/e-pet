@@ -117,7 +117,7 @@
                                 Continuar comprando!
                             </a>
                             <a class="btn btn-success col-4 col-md-4 col-lg-4 btn-pagar" data-toggle="tooltip"
-                            data-placement="left" title="Efetuar o pagamento" href="/">
+                            data-placement="left" title="Efetuar o pagamento" href="/checkout/1">
                                 Pagamento
                             </a>
                     </div>
@@ -141,4 +141,5 @@
         {{ csrf_field() }}
         <input type="hidden" name="id">
     </form>
+
 @stop
