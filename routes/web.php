@@ -56,6 +56,8 @@ Route::get('/carrinho/adicionar', function(){
 }); //Pra caso o usuário digite diretamente na barra de endereços /carrinho/adicionar
 Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
 Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
+Route::post('/carrinho/concluir', 'CarrinhoController@concluir')->name('carrinho.concluir');
+Route::get('/carrinho/compras', 'CarrinhoController@compras')->name('carrinho.compras');
 
 Route::get('/checkout/{id}',function($id){
     $data = [];

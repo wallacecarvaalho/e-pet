@@ -96,6 +96,10 @@ ul {
   margin: 10px 0px !important;
 }
 
+.linha-carrinho {
+  vertical-align: middle !important;
+}
+
 .btn-logar {
   width: 100%;
   margin: 20px 0;

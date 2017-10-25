@@ -18,6 +18,10 @@ class Carrinho extends Model
             ->groupBy('produto_id')
             ->orderBy('produto_id', 'desc');
     }
+    
+    public function carrinho_produtos_itens(){
+        return $this->hasMany('App\CarrinhoProduto');
+    }
 
     public static function consultaId($where){
         $pedido = self::where($where)->first(['id']);

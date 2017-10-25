@@ -50,13 +50,8 @@
                                 <div class="text-center">
 
                                     <a class="col-sm-4 col-md-4 col-lg-4">
-                                        <span class="glyphicon glyphicon-minus-sign"
-                                        data-toggle="tooltip" 
-                                        data-placement="right"
-                                        title="Remover um item" 
-                                        onclick="carrinhoRemoverProduto( 
-                                            {{ $carrinho->id }},
-                                            {{ $carrinho_produto->produto_id }}, 1 )"></span> <!-- 1 p/ remover 1 item, 0 p/ remover todos -->
+                                        <span class="glyphicon glyphicon-minus-sign" onclick="carrinhoRemoverProduto( {{ $carrinho->id }}, {{ $carrinho_produto->produto_id }}, 1 )"></span> 
+                                        <!-- 1 p/ remover 1 item, 0 p/ remover todos -->
                                     </a>
 
                                     <span class="item-carrinho col-sm-4 col-md-4 col-lg-4">
@@ -64,20 +59,15 @@
                                     </span>
 
                                     <a class="col-sm-4 col-md-4 col-lg-4">
-                                        <span class="glyphicon glyphicon-plus-sign" 
-                                        data-toggle="tooltip" 
-                                        data-placement="right"
-                                        title="Adicionar um item" 
-                                        onclick="carrinhoAdicionarProduto( {{ $carrinho_produto->produto_id }} )"></span>
+                                        <span class="glyphicon glyphicon-plus-sign" onclick="carrinhoAdicionarProduto( {{ $carrinho_produto->produto_id }} )"></span>
                                     </a>
                                     
                                 </div>
-                                <a class="btn btn-link" data-toggle="tooltip" data-placement="right"
-                                    title="Retirar produto do carrinho"  
-                                    onclick="carrinhoRemoverProduto( 
-                                        {{ $carrinho->id }},
-                                        {{ $carrinho_produto->produto_id }}, 0 )">Retirar produto</a>
+                                <a class="btn btn-link" onclick="carrinhoRemoverProduto( {{ $carrinho->id }}, {{ $carrinho_produto->produto_id }}, 0 )">
+                                    Retirar produto
+                                </a>
                             </td>
+
                             <td > {{ $carrinho_produto->produto->name }}</td>
                             <td >R$ {{ number_format($carrinho_produto->produto->preco, 2, ',', '.') }}</td>
                             @php
@@ -121,6 +111,17 @@
                                 Pagamento
                             </a>
                     </div>
+
+                    <!-- =================== \/ APAGAR ESTE BOTÃO! \/ =================== -->
+                    <div class="row">
+                        <form method="POST" action="{{ route('carrinho.concluir') }}">
+                            
+                            {{ csrf_field() }}
+                            <input type="hidden" name="carrinho_id" value="{{ $carrinho->id }}">
+                            <button class="btn btn-success btn-comprar">Testar pagamento</button>
+                        </form>
+                    </div>
+                    <!-- =================== /\ APAGAR ESTE BOTÃO! /\ =================== -->
                 @endif
 
                 
