@@ -18,7 +18,10 @@
                     </div>
                 @endif
                 
-                @if($compras->count())
+                @forelse ($compras as $carrinho)
+                        @php
+                            $total_carrinho = 0;
+                        @endphp
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -28,13 +31,15 @@
                                 <th class="item-carrinho"></th>
                                 <th class="item-carrinho">Total</th>
                             </tr>
+                    <h3 class="col-sm-12 col-md-6 col-lg-6">Pedido: {{ $carrinho->id }} </h3>
+                    <h3 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h3>
                         </thead>
                         <tbody>
-                @endif
-                @forelse ($compras as $carrinho)
-                    {{--  <h5 class="col-sm-12 col-md-6 col-lg-6">Pedido: {{ $carrinho->id }} </h5>
-                    <h5 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h5>  --}}
+
                     @foreach ($carrinho->carrinho_produtos_itens as $carrinho_produto)
+                        @php
+                            $total_carrinho += $carrinho_produto->produto->preco;
+                        @endphp
                         <tr>
                             <td class="linha-carrinho"><img class="img-rounded" width="100" height="100" src="{{ $carrinho_produto->produto->imagem }}"></td>
                             <td class="linha-carrinho">{{ $carrinho_produto->produto->name }}</td>
@@ -43,6 +48,15 @@
                             <td class="linha-carrinho">R$ {{ number_format($carrinho_produto->produto->preco, 2, ',', '.')}}</td>
                         </tr>
                     @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td class="item-carrinho"><strong>Total do pedido: </strong></td>
+                            <td class="linha-carrinho">R$ {{ number_format($total_carrinho, 2, ',', '.')}}</td>
+                        </tr>
+                    </tfoot>
+                    </table>
                       
                 @empty
                     <div class="container">
