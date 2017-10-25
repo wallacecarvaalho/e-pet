@@ -43,10 +43,10 @@
                             $num_itens++;
                         @endphp
                         <tr>
-                            <td >
-                                <img width="100" height="100" src="{{ $carrinho_produto->produto->imagem }}">
+                            <td class="linha-carrinho">
+                                <img class="img-rounded" width="100" height="100" src="{{ $carrinho_produto->produto->imagem }}">
                             </td>
-                            <td class="text-center">
+                            <td class="text-center linha-carrinho">
                                 <div class="text-center">
 
                                     <a class="col-sm-4 col-md-4 col-lg-4">
@@ -68,13 +68,13 @@
                                 </a>
                             </td>
 
-                            <td > {{ $carrinho_produto->produto->name }}</td>
-                            <td >R$ {{ number_format($carrinho_produto->produto->preco, 2, ',', '.') }}</td>
+                            <td class="linha-carrinho"> {{ $carrinho_produto->produto->name }}</td>
+                            <td class="linha-carrinho">R$ {{ number_format($carrinho_produto->produto->preco, 2, ',', '.') }}</td>
                             @php
                                 $total_produto = $carrinho_produto->valores;
                                 $total_carrinho += $total_produto;
                             @endphp
-                            <td >R$ {{ number_format($total_produto, 2, ',', '.') }}</td>
+                            <td class="linha-carrinho">R$ {{ number_format($total_produto, 2, ',', '.') }}</td>
                         </tr>
                     @endforeach
                       

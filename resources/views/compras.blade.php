@@ -36,7 +36,7 @@
                     <h5 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h5>  --}}
                     @foreach ($carrinho->carrinho_produtos_itens as $carrinho_produto)
                         <tr>
-                            <td class="linha-carrinho"><img width="100" height="100" src="{{ $carrinho_produto->produto->imagem }}"></td>
+                            <td class="linha-carrinho"><img class="img-rounded" width="100" height="100" src="{{ $carrinho_produto->produto->imagem }}"></td>
                             <td class="linha-carrinho">{{ $carrinho_produto->produto->name }}</td>
                             <td></td>
                             <td></td>
