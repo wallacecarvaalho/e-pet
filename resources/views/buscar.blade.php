@@ -20,7 +20,7 @@
                                 <div class="col-md-6 col-itens">
                                     
                                         <div class="thumbnail produto-descricao">
-                                            <img src="{{$p->imagem}}" class="img-rounded img-descricao" alt="...">
+                                            <img src="/{{$p->imagem}}" class="img-rounded img-descricao" alt="...">
                                             <div class="caption">
                                               
                                             </div>
