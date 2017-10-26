@@ -15,6 +15,10 @@
                     @endif
 
                     AREA ADMINISTRATIVA
+                    <div class="row">
+                        <a href="#" class="btn btn-success">Adicionar produto</a>
+                    
+                    </div>
                 </div>
             </div>
         </div>

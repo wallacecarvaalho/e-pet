@@ -14,6 +14,7 @@ use App\PagSeguro\PagSeguro;
 Route::get('/', 'ProdutoController@lista');
 
 Route::get('/produtos/{id_produto}', 'ProdutoController@mostrar');
+//Route::get('/produtos/adicionar', 'ProdutoController@adicionar')->name('produto.adicionar');
 
 
 Auth::routes();

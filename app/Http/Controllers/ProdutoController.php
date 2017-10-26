@@ -29,6 +29,10 @@ class ProdutoController extends Controller
 
     }
 
+    // public function adicionar(){
+    //     return view('adicionar');
+    // }
+
    
 
 }
