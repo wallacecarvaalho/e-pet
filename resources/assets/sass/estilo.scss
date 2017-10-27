@@ -125,6 +125,16 @@ ul.barra-categorias {
     font-size: 16px;
 }
 
+//Listar produtos na dashboard
+.qtd {
+    display: inline-block;
+}
+
+//Tela editar produto
+#descricao {
+    resize: none;
+}
+
 //Adicionar produto
 .botao-geral {
     font-size: 16px !important;

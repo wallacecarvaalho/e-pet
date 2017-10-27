@@ -16,8 +16,7 @@
                     @endif
                     <div class="btn-group-justified">
                         <a href="/produtos/adicionar" class="btn btn-success botao-geral col-md-3">Adicionar produto</a>
-                        <a href="#" class="btn btn-warning botao-geral col-md-3">Editar produto</a>
-                        <a href="#" class="btn btn-danger botao-geral col-md-3">Remover produto</a>
+                        <a href="{{ route('produtos.listar') }}" class="btn btn-warning botao-geral col-md-3">Listar produtos</a>
                     
                     </div>
                 </div>

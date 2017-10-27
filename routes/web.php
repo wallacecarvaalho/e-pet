@@ -12,9 +12,11 @@ use App\PagSeguro\PagSeguro;
 */
 
 Route::get('/', 'ProdutoController@lista');
-
 Route::get('/produtos/adicionar', 'ProdutoController@adicionar')->name('produtos.adicionar');
 Route::post('/produtos/salvar', 'ProdutoController@salvar')->name('produtos.salvar');
+Route::get('/produtos/listar', 'ProdutoController@listar')->name('produtos.listar'); //Lista na dashboard
+Route::get('/produtos/editar/{id}', 'ProdutoController@editar')->name('produtos.editar');
+Route::put('/produtos/atualizar/{id}', 'ProdutoController@atualizar')->name('produtos.atualizar');
 Route::get('/produtos/{id_produto}', 'ProdutoController@mostrar');
 
 

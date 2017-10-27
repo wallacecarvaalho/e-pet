@@ -116,6 +116,14 @@ ul.barra-categorias {
   font-size: 16px;
 }
 
+.qtd {
+  display: inline-block;
+}
+
+#descricao {
+  resize: none;
+}
+
 .botao-geral {
   font-size: 16px !important;
   font-weight: bold !important;
