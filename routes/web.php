@@ -13,8 +13,9 @@ use App\PagSeguro\PagSeguro;
 
 Route::get('/', 'ProdutoController@lista');
 
+Route::get('/produtos/adicionar', 'ProdutoController@adicionar')->name('produtos.adicionar');
+Route::post('/produtos/salvar', 'ProdutoController@salvar')->name('produtos.salvar');
 Route::get('/produtos/{id_produto}', 'ProdutoController@mostrar');
-//Route::get('/produtos/adicionar', 'ProdutoController@adicionar')->name('produto.adicionar');
 
 
 Auth::routes();
@@ -46,9 +47,6 @@ Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@listar');
-
-//Route::get('/carrinho', 'CarrinhoController@mostrar');
-//Route::post('/carrinho/salvar/{id_produto}',['as' => 'carrinho.salvar', 'uses' => 'CarrinhoController@salvar']); //Salva o produto no carrinho
 
 
 Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');

@@ -29,9 +29,35 @@ class ProdutoController extends Controller
 
     }
 
-    // public function adicionar(){
-    //     return view('adicionar');
-    // }
+    public function adicionar(){
+        return view('adicionar');
+    }
+
+    public function salvar(Request $req){
+        $produto = $req->all();
+
+        //dd($produto);
+
+        if($req->hasFile('imagem')){
+            $imagem = $req->file('imagem');
+            $num = rand(1111,9999);
+            $dir = "img/produtos";
+            $ext = $imagem->guessClientExtension();
+            $nomeImagem = "imagem_".$num.".".$ext;
+            $imagem->move($dir, $nomeImagem);
+            $produto['imagem'] = $dir."/".$nomeImagem;
+        }
+        
+        if($req->qtd == 0){
+            $produto['status'] = "Indisponível";
+        } else {
+            $produto['status'] = "Disponível";
+        }
+
+        $novoProd = Produto::create($produto);
+
+        return redirect('/produtos/'.$novoProd->id);
+    }
 
    
 

@@ -10,7 +10,7 @@ class Produto extends Model
     //protected $primaryKey = 'produto_id';
 
     protected $fillable = [
-        'name','descricao','preco','imagem'
+        'name', 'descricao', 'preco', 'imagem', 'qtd', 'categoria', 'status'
     ];
 
     public function statusEstoque(){
