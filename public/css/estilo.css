@@ -42,7 +42,6 @@ ul {
 
 .lista-categorias {
   list-style-type: none;
-  border: 1px solid #2ab28a;
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -50,6 +49,7 @@ ul {
   text-align: center;
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
+  float: right;
 }
 
 .lista-categorias:hover {
@@ -67,6 +67,18 @@ ul {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   color: black;
+}
+
+.col-md-12.col-categoria {
+  padding-left: 0 !important;
+}
+
+ul.barra-categorias {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #73dffd;
+  width: 100%;
 }
 
 .item-carrinho {

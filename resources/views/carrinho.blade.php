@@ -5,6 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="container">
+             
+                     {{ csrf_field() }}
                 <h3>Produtos no carrinho</h3>
                 <hr>
                 @if (Session::has('mensagem-sucesso'))
@@ -106,8 +108,8 @@
                             data-placement="right" title="Voltar a página inicial para selecionar mais itens!" href="/">
                                 Continuar comprando!
                             </a>
-                            <a class="btn btn-success col-4 col-md-4 col-lg-4 btn-pagar" data-toggle="tooltip"
-                            data-placement="left" title="Efetuar o pagamento" href="/checkout/1">
+                           <a class="btn btn-success col-4 col-md-4 col-lg-4 btn-pagar" data-toggle="tooltip"
+                            data-placement="left" title="Efetuar o pagamento" href="/checkout/dados/">
                                 Pagamento
                             </a>
                     </div>

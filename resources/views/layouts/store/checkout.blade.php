@@ -8,15 +8,46 @@
         <li role="presentation"><a data-toggle="tab" href="#step2" role="tab">Entrega</a></li>
         <li role="presentation"><a data-toggle="tab" href="#step3" role="tab">Pagamento</a></li>
     </ul>
-    <form action="/checkout/{{ $id }}" method="post" id="form">
+    <form action="/checkout/1" method="post" id="form">
 
       {{ csrf_field() }}
 
-        <input type="hidden" name="itemId1" value="0001">
-        <input type="hidden" name="itemDescription1" value="Produto PagSeguroI">
-        <input type="hidden" name="itemAmount1" value="250.00">
-        <input type="hidden" name="itemQuantity1" value="2">
+        @if(!empty($response))
+        <div class="alert alert-success" role="alert">
+            <strong>Sucesso</strong>
+        </div>
+      @else
 
+        <div class="tab-content">
+        @php
+        $cont = 1;  
+        
+        @endphp
+
+@forelse ($dados as $carrinho)
+                    {{--  <h5 class="col-sm-12 col-md-6 col-lg-6">Pedido: {{ $carrinho->id }} </h5>
+                    <h5 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h5>  --}}
+                    @foreach ($carrinho->carrinho_produtos as $carrinho_produto)
+                        
+                     @php 
+                         $itemid = 'itemId'.$cont;
+                         $itemDescription = 'itemDescription'.$cont;
+                         $itemAmount = 'itemAmount'.$cont;
+                         $itemQuantity = 'itemQuantity'.$cont;
+                     @endphp
+
+                          <input type="hidden" name="{{$itemid}}" value="{{$carrinho_produto->produto->id}}">
+                          <input type="hidden" name="{{$itemDescription}}" value="{{$carrinho_produto->produto->name}}">
+                          <input type="hidden" name="{{$itemAmount}}" value="{{$carrinho_produto->produto->preco}}">
+                          <input type="hidden" name="{{$itemQuantity}}" value="{{$carrinho_produto->qtd}}">
+                    
+                    @php $cont ++;  @endphp
+                    
+                    
+                    @endforeach
+                    @empty
+                   
+  @endforelse
         <div class="tab-content">
 
             <div class="tab-pane active" role="tabpanel" id="step1" >
@@ -138,7 +169,8 @@
                             <p>Dados do dono do cartão</p>
                                 <p>
                                     <input type="checkbox" id="copy_from_me">
-                                    <label for="copy_from_me">Copiar seus dados</label>
+                                    <label for="copy_from_me">Copiar seus dados do Cadastro</label>
+
                                 </p>     
                             
                                 <div id="holder_data">
@@ -215,7 +247,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <input type="submit" class="btn btn-success" value="pagar">
+                                   <input type="submit" class="btn btn-success" id="pagemento" value="pagar">
                                 </div>
                         
                     </div>
@@ -226,7 +258,7 @@
     
     
     </div>
-
+@endif
 @endsection
 
 @section('script')
@@ -237,11 +269,9 @@
  <script>
           const paymentData = {
             brand: '',
-            amount: '{{ $amount }}',
+            amount: 531.50,
          }
          PagSeguroDirectPayment.setSessionId('{!! $session !!}');
-
-
                 
         pagSeguro.getPaymentMethods(paymentData.amount)
         .then(function(urls){
@@ -277,7 +307,7 @@
                                         $('#installmentValue').val(res[0].installmentAmount); 
                                         $('#installmentQuantity').on('change', function(){
                                             let value = res[$('#installmentQuantity').val() - 1].installmentAmount;
-                                             $('#installmentValue').val(value); 
+                                               $('#installmentValue').val(value);
                                         });               
                                     });
         }
@@ -286,7 +316,7 @@
     $('#form').submit(function(e) {
         e.preventDefault();
         let params = {
-            cardNumber: $('#cardNumber ').val(),
+            cardNumber: $('#cardNumber').val(),
             cvv: $('#cvv').val(),
             cardNumber: $('#cardNumber').val(),
             expirationMonth: $('#expirationMonth').val(),
@@ -298,7 +328,7 @@
                 $('#creditCardToken').val(token);
                 let url = $('#form').attr('action');
                 let data = $('#form').serialize();
-                $.post(url, data)
+                $.post(url, data) 
             });
     });
         

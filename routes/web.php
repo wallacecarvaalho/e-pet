@@ -37,7 +37,7 @@ Route::group(['prefix'=>'admin' , 'as' => 'admin.'], function(){
           Route::group(['middleware' => 'can:admin'], function(){
               $this->get('/dashboard', function(){
             return view('dashboard');
-          })->middleware('auth');
+          });
         });
         
         
@@ -60,19 +60,8 @@ Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho
 Route::post('/carrinho/concluir', 'CarrinhoController@concluir')->name('carrinho.concluir');
 Route::get('/carrinho/compras', 'CarrinhoController@compras')->name('carrinho.compras');
 
-Route::get('/checkout/{id}',function($id){
-    $data = [];
-    $data['email'] = 'wallace.c.aleixo00@gmail.com';
-    $data['token'] = '9A8FB0217179448C81E3ABFB7DF083E4';
-    $response = (new PagSeguro)->request(PagSeguro::SESSION_SANDBOX,$data);
 
-    $session = new \SimpleXMLElement($response->getContents());
-    $session = $session->id;
-
-    $amount = number_format(521.50,2,'.','');
-
-    return view('layouts.store.checkout', compact('id','session','amount'));
-});
+Route::get('/checkout/dados','PagamentoController@dadosCarrinho')->name('pagamento.dados');
 
 Route::post('/checkout/{id}',function($id){
     $data = request()->all();
@@ -94,7 +83,6 @@ Route::post('/checkout/{id}',function($id){
 
     $data['senderAreaCode'] = substr($data['senderPhone'],0,2);
     $data['senderPhone'] = substr($data['senderPhone'],2,strlen($data['senderPhone']));
-
     $data['creditCardHolderAreaCode'] = substr($data['creditCardHolderPhone'],0,2);
     $data['creditCardHolderPhone'] = substr($data['creditCardHolderPhone'],2,strlen($data['creditCardHolderPhone']));
     $data['installmentValue'] = number_format($data['installmentValue'],2,'.','');
@@ -106,5 +94,5 @@ Route::post('/checkout/{id}',function($id){
     }catch(\Exception $e){
         dd($e->getMessage());
     }
-    return $data;
+   return $data;
 });

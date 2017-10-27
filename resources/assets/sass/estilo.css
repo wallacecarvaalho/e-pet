@@ -42,13 +42,13 @@ ul {
 
 .lista-categorias {
   list-style-type: none;
-  border: 1px solid #2ab28a;
   width: 100%;
   padding: 10px;
   border-radius: 10px;
   margin: 5px;
   text-align: center;
   text-decoration-line: none;
+  float: right;
 }
 
 .lista-categorias:hover {
@@ -66,8 +66,19 @@ ul {
   color: black;
 }
 
+.col-md-12.col-categoria {
+  padding-left: 0 !important;
+}
+
+ul.barra-categorias {
+  display: flex;
+  background: #73dffd;
+  width: 100%;
+}
+
 .item-carrinho {
   width: 20% !important;
+  font-size: 20px;
 }
 
 .carrinho-total {
@@ -91,6 +102,11 @@ ul {
 .btn-pagar {
   float: right !important;
   margin: 10px 0px !important;
+}
+
+.linha-carrinho {
+  vertical-align: middle !important;
+  font-size: 16px;
 }
 
 .btn-logar {

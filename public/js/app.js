@@ -30887,7 +30887,7 @@ module.exports.default = axios;
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
 
@@ -42546,9 +42546,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-fed8a028", Component.options)
+    hotAPI.createRecord("data-v-0d16155b", Component.options)
   } else {
-    hotAPI.reload("data-v-fed8a028", Component.options)
+    hotAPI.reload("data-v-0d16155b", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42735,7 +42735,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-fed8a028", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0d16155b", module.exports)
   }
 }
 
