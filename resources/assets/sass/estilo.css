@@ -10,6 +10,10 @@ ul {
   -webkit-padding-start: 0px;
 }
 
+a {
+  color: white !important;
+}
+
 .fundo {
   background: white;
 }
@@ -31,7 +35,10 @@ ul {
 
 .navbar.barra-navegacao {
   margin-bottom: 0px;
-  background: #41d3fc;
+  background-image: -webkit-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -moz-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -o-linear-gradient(320deg, #ff4169, #7c26f8) !important;
+  background-image: linear-gradient(50deg, #ff4169, #7c26f8);
 }
 
 .thumbnail {
@@ -41,6 +48,7 @@ ul {
 }
 
 .lista-categorias {
+  color: white !important;
   list-style-type: none;
   width: 100%;
   padding: 10px;
@@ -52,28 +60,28 @@ ul {
 }
 
 .lista-categorias:hover {
-  border: 1px solid blueviolet;
+  border: 1px solid linear-gradient(50deg, #ff4169, #7c26f8);
 }
 
 .lista-categorias:hover a {
-  color: black;
+  color: white !important;
 }
 
 .lista-categorias:hover a:hover {
   text-decoration-line: none;
   font-size: 17px;
   transition: 0.3s;
-  color: black;
-}
-
-.col-md-12.col-categoria {
-  padding-left: 0 !important;
 }
 
 ul.barra-categorias {
   display: flex;
-  background: #73dffd;
+  background-image: -webkit-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -moz-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -o-linear-gradient(320deg, #ff4169, #7c26f8) !important;
+  background-image: linear-gradient(50deg, #ff4169, #7c26f8);
   width: 100%;
+  margin-bottom: 0;
+  margin-top: -1px;
 }
 
 .item-carrinho {
@@ -109,6 +117,11 @@ ul.barra-categorias {
   font-size: 16px;
 }
 
+.botao-geral {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
 .btn-logar {
   width: 100%;
   margin: 20px 0;
@@ -132,11 +145,17 @@ ul.barra-categorias {
 }
 
 .navbar-toggle.collapsed {
-  background-color: #41d3fc;
+  background-image: -webkit-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -moz-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -o-linear-gradient(320deg, #ff4169, #7c26f8) !important;
+  background-image: linear-gradient(50deg, #ff4169, #7c26f8);
 }
 
 .navbar-default .navbar-toggle:hover {
-  background-color: #73dffd !important;
+  background-image: -webkit-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -moz-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -o-linear-gradient(320deg, #ff4169, #7c26f8) !important;
+  background-image: linear-gradient(50deg, #ff4169, #7c26f8);
 }
 
 #pesquisar {
@@ -152,6 +171,15 @@ ul.barra-categorias {
 
 .search {
   display: block;
+}
+
+.btn-default.btn-search {
+  background: transparent;
+  color: white;
+}
+
+.input-search {
+  opacity: 0.8;
 }
 
 .col-sm-6.col-md-4.col-itens {
@@ -236,7 +264,10 @@ ul.barra-categorias {
 }
 
 #footer {
-  background: #41d3fc;
+  background-image: -webkit-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -moz-linear-gradient(320deg, #ff4169, #7c26f8);
+  background-image: -o-linear-gradient(320deg, #ff4169, #7c26f8) !important;
+  background-image: linear-gradient(50deg, #ff4169, #7c26f8);
 }
 
 @media screen and (max-width: 768px) {

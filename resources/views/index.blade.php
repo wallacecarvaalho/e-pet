@@ -1,28 +1,24 @@
 @extends('principal')
 
-@section('conteudo')
-<div class="container">
-        <section id="header">
-                <div class="row">
+@section('conteudo') 
+<div class="row">
                     <!--Coluna de categorias-->
                             <section class="categorias">
                                 <div class="col-md-12 col-categoria">
-
                                     <ul class="barra-categorias">
                                         <li class="lista-categorias"><a href="">Cachorros</a></li>
                                         <li class="lista-categorias"><a href="">Gatos</a></li>
                                         <li class="lista-categorias"><a href="">Papagaio</a></li>
                                         <li class="lista-categorias"><a href="">Cachorros</a></li>
-                                        <li class="lista-categorias"><a href="">Gatos</a></li>
-                                        <li class="lista-categorias"><a href="">Papagaio</a></li>
                                         <li class="lista-categorias"><a href="">Cachorros</a></li>
-                                        <li class="lista-categorias"><a href="">Gatos</a></li>
-                                        <li class="lista-categorias"><a href="">Papagaio</a></li>
                                     </ul>
 
                                 </div>
                             </section>
                 </div>
+<div class="container">
+        <section id="header">
+                
     
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -110,5 +106,7 @@
             
         </div>
     </div>
+
+
 
 @stop

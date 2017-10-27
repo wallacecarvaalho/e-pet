@@ -35,6 +35,7 @@
       <ul class="nav navbar-nav navbar-right text-center">
       
           @if (!Auth::guest())
+            
 
             @if(isAdmin()) 
                  <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
@@ -60,21 +61,23 @@
               <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
           @endif
           @else
-            <li><a class="navbar-opcao" href="/login">Entrar</a></li>
+             <li><a href="{{ route('login') }}">Entrar</a></li>
+            <li><a href="{{ route('register') }}">Registrar</a></li>
+            
           @endif
           
        </ul>
        
         </div>
- <div class="container text-center search">
+            <div class="container text-center search">
                     <!-- Search -->
                     <form action="/search" method="GET" class="navbar-form form-inline">
                         <div class="form-group">
                                 <div class="input-group input-group-search">
 
-                                        <input type="text" class="form-control" id="pesquisar" name="termo" placeholder="Digite aqui o que deseja buscar">
+                                        <input type="text" class="form-control input-search" id="pesquisar" name="termo" placeholder="Digite aqui o que deseja buscar">
                                         <span class="input-group-btn">
-                                            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
+                                            <button type="submit" class="btn btn-default btn-search"><i class="glyphicon glyphicon-search"></i></button>
                                         </span>
                                  </div><!-- /input-group -->
                             
@@ -84,9 +87,9 @@
 
   </nav>
     <main>
-        <div class="container">
+        
             @yield('conteudo')
-        </div>
+        
     </main>
   <footer id="footer">
  

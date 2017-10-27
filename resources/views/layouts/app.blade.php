@@ -12,65 +12,66 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="/css/app.css">
+        
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+       <nav class="navbar barra-navegacao navbar-default">
+    
+    <div class="container">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>      
+      <a class="navbar-brand" href="/">E-Pet</a> 
+    </div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right text-center">
+      
+          @if (!Auth::guest())
+            
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+            @if(isAdmin()) 
+                 <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
+                                              onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                              Sair</a>
+              </li>
+                  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+            @else
+            
+              <li><a class="navbar-opcao" href="{{ route('carrinho.compras') }}">Compras</a></li>
+              <li><a class="navbar-opcao" href="/carrinho">Meu carrinho</a></li>
+              <li><a  class="navbar-opcao" href="{{ route('admin.logout') }}"
+                                              onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                              Sair</a>
+              </li>
+                  <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+              <li class="navbar-user"> Usuario: {{ Auth::user()->name }} </li>
+          @endif
+          @else
+             <li><a href="{{ route('login') }}">Entrar</a></li>
+            <li><a href="{{ route('register') }}">Registrar</a></li>
+            <li><a href="/">Voltar ao Site</a></li>
+            
+          @endif
+          
+       </ul>
+       
+        </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Entrar</a></li>
-                            <li><a href="{{ route('register') }}">Registrar</a></li>
-                            <li><a href="/">Voltar ao Site</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Sair
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  </nav>
 
         @yield('content')
     </div>

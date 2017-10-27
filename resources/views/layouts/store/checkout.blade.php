@@ -12,42 +12,7 @@
 
       {{ csrf_field() }}
 
-        @if(!empty($response))
-        <div class="alert alert-success" role="alert">
-            <strong>Sucesso</strong>
-        </div>
-      @else
-
-        <div class="tab-content">
-        @php
-        $cont = 1;  
-        
-        @endphp
-
-@forelse ($dados as $carrinho)
-                    {{--  <h5 class="col-sm-12 col-md-6 col-lg-6">Pedido: {{ $carrinho->id }} </h5>
-                    <h5 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h5>  --}}
-                    @foreach ($carrinho->carrinho_produtos as $carrinho_produto)
-                        
-                     @php 
-                         $itemid = 'itemId'.$cont;
-                         $itemDescription = 'itemDescription'.$cont;
-                         $itemAmount = 'itemAmount'.$cont;
-                         $itemQuantity = 'itemQuantity'.$cont;
-                     @endphp
-
-                          <input type="hidden" name="{{$itemid}}" value="{{$carrinho_produto->produto->id}}">
-                          <input type="hidden" name="{{$itemDescription}}" value="{{$carrinho_produto->produto->name}}">
-                          <input type="hidden" name="{{$itemAmount}}" value="{{$carrinho_produto->produto->preco}}">
-                          <input type="hidden" name="{{$itemQuantity}}" value="{{$carrinho_produto->qtd}}">
-                    
-                    @php $cont ++;  @endphp
-                    
-                    
-                    @endforeach
-                    @empty
-                   
-  @endforelse
+    
         <div class="tab-content">
 
             <div class="tab-pane active" role="tabpanel" id="step1" >
@@ -258,7 +223,6 @@
     
     
     </div>
-@endif
 @endsection
 
 @section('script')
