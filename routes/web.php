@@ -17,6 +17,7 @@ Route::post('/produtos/salvar', 'ProdutoController@salvar')->name('produtos.salv
 Route::get('/produtos/listar', 'ProdutoController@listar')->name('produtos.listar'); //Lista na dashboard
 Route::get('/produtos/editar/{id}', 'ProdutoController@editar')->name('produtos.editar');
 Route::put('/produtos/atualizar/{id}', 'ProdutoController@atualizar')->name('produtos.atualizar');
+Route::get('/produtos/remover/{id}', 'ProdutoController@remover')->name('produtos.remover');
 Route::get('/produtos/{id_produto}', 'ProdutoController@mostrar');
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produto;
+use App\CarrinhoProduto;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -100,6 +101,12 @@ class ProdutoController extends Controller
 
         Produto::find($id)->update($produto);
 
+        return redirect()->route('produtos.listar');
+    }
+    
+    public function remover($id){
+        //CarrinhoProduto::where('produto_id', $id)->where('status', 'RE')->delete();
+        //Produto::find($id)->delete();
         return redirect()->route('produtos.listar');
     }
    

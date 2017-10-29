@@ -17,50 +17,50 @@
                         Nenhum produto cadastrado.
                     </div>
                 @else  {{-- Se tiver produtos --}}
-                    <div class="panel panel-default">
-                    <div class="panel-body">
-                    <table class="table-striped ">
+                    {{--  <div class="panel panel-default">  --}}
+                    {{--  <div class="panel-body">  --}}
+                    <table class="table-hover table-produtos" width="100%">
                         <thead>
-                            <th class="item-carrinho">Imagem</th>
-                            <th class="item-carrinho">Produto</th>
-                            <th class="item-carrinho">Qtd</th>
+                            <th class="item-carrinho-produtos">Imagem</th>
+                            <th class="item-carrinho-produtos">Produto</th>
+                            <th class="item-carrinho-produtos">Quantidade</th>
                             {{--  <th class="item-carrinho">Categoria</th>  --}}
-                            <th class="item-carrinho">Valor Unitário</th>
-                            <th class="item-carrinho"></th>
+                            <th class="item-carrinho-produtos">Valor</th>
+                            <th class="item-carrinho-produtos glyphicon glyphicon-cog"></th>
                         </thead>
                         <tbody>
                             @foreach ($produtos as $p)
 
                                 <tr>
-                                    <td class="linha-carrinho">
-                                        <div class="thumbnail produto-descricao">
-                                            <img class="img-rounded" width="100" height="100" src="{{ $p->imagem }}">
+                                    <td class="linha-carrinho" width="15%">
+                                        <div class="produto-descricao">
+                                            <img class="img-rounded" width="100" height="100" src="/{{ $p->imagem }}">
                                         </div>
                                     </td>
 
-                                    <td class="linha-carrinho">
+                                    <td class="linha-carrinho" width="40%">
                                         {{ $p->name }}
                                     </td>
-                                    <td class="linha-carrinho">
+                                    <td class="linha-carrinho" width="10%">
                                         {{ $p->qtd }}
-                                    </td class="linha-carrinho">
+                                    </td>
                                     {{--  <td>
                                         {{ $p->categoria }}
                                     </td>  --}}
-                                    <td class="linha-carrinho">
-                                        {{ $p->preco }}
+                                    <td class="linha-carrinho" width="15%">
+                                        R$ {{ $p->preco }}
                                     </td>
-                                    <td class="linha-carrinho">
-                                        <a class="btn btn-warning" href="{{ route('produtos.editar', $p->id) }}">Editar</a>
-                                        <a class="btn btn-danger" href="#">Excluir</a>
+                                    <td class="linha-carrinho botoes-carrinho" width="20%">
+                                        <a class="btn btn-default glyphicon glyphicon-edit btn-editar" href="{{ route('produtos.editar', $p->id) }}"></a>
+                                        <a class="btn btn-danger glyphicon glyphicon-trash btn-deletar" href="#"></a>
                                     </td>
                                 </tr>
 
                             @endforeach
                         </tbody>
                     </table>
-                    </div>
-                    </div> 
+                    {{--  </div>  --}}
+                    {{--  </div>   --}}
                 @endunless
 
         </div>

@@ -91,9 +91,22 @@ ul.barra-categorias {
     margin-top: -1px;
 }
 
-// Carrinho
+//Carrinho 
+a.btn.btn-link {
+    color: #3097D1 !important;
+    &:hover{
+        color: #216a94 !important;
+    }
+}
+a.icone-carrinho{
+    color: #3097D1 !important;
+    &:hover{
+        color: #216a94 !important;
+    }
+}
+
 .item-carrinho {
-    width: 20% !important;
+    padding: 8px;
     font-size: 20px;
 }
 
@@ -123,23 +136,72 @@ ul.barra-categorias {
 .linha-carrinho {
     vertical-align: middle !important;
     font-size: 16px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    //padding: 10px 0;
+    padding: 8px !important; 
+    border: 1px solid lightgrey;
+    &.botoes-carrinho {
+        text-align: center !important;
+    }
+}
+// ===========
+
+//Tabela produtos na dashboard
+.item-carrinho-produtos {
+    padding: 8px;
+    font-size: 20px;
+    background: #a923c4;
+    color: white;
+    &.glyphicon {
+        display: table-cell;
+        top: 0;
+        text-align: center;
+    }
 }
 
-//Listar produtos na dashboard
-.qtd {
-    display: inline-block;
+.table-hover {
+    & td:first-child{
+        text-align: center;
+    }
+    &.table-produtos tr:hover {
+        background: rgb(237, 237, 237) !important;
+        transition: 0.1s;
+    }
 }
+
+.btn-editar {
+    color: darkorange !important;
+    border: 2px solid darkorange !important;
+    &:hover {
+        color: white !important;
+        background: darkorange !important;
+        transition: 0.3s;
+    }
+}
+
+.btn-deletar {
+    background: white !important;
+    color: darkred !important;
+    border: 2px solid darkred !important;
+    &:hover {
+        color: white !important;
+        background: darkred !important;
+        transition: 0.2s;
+    }
+}
+//================
 
 //Tela editar produto
 #descricao {
     resize: none;
 }
 
-//Adicionar produto
+//Adicionar/Editar produto
 .botao-geral {
     font-size: 16px !important;
     font-weight: bold !important;
 }
+//=================
 
 .btn-logar {
     width: 100%;

@@ -51,7 +51,7 @@
                             <td class="text-center linha-carrinho">
                                 <div class="text-center">
 
-                                    <a class="col-sm-4 col-md-4 col-lg-4">
+                                    <a class="col-sm-4 col-md-4 col-lg-4 icone-carrinho">
                                         <span class="glyphicon glyphicon-minus-sign" onclick="carrinhoRemoverProduto( {{ $carrinho->id }}, {{ $carrinho_produto->produto_id }}, 1 )"></span> 
                                         <!-- 1 p/ remover 1 item, 0 p/ remover todos -->
                                     </a>
@@ -60,7 +60,7 @@
                                         {{ $carrinho_produto->qtd }}
                                     </span>
 
-                                    <a class="col-sm-4 col-md-4 col-lg-4">
+                                    <a class="col-sm-4 col-md-4 col-lg-4 icone-carrinho">
                                         <span class="glyphicon glyphicon-plus-sign" onclick="carrinhoAdicionarProduto( {{ $carrinho_produto->produto_id }} )"></span>
                                     </a>
                                     
