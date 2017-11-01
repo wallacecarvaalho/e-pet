@@ -61,12 +61,7 @@ class CarrinhoController extends Controller
             'status' => 'RE'
         ]);
 
-        // if(empty($produtoCriado)){
-        //     return response()->json([  'status' => 'VAZIO' ]);
-        // } else {
-        //     return response()->json([  'status' => 'PREENCHIDO' ]);
-        // }
-        $req->session()->flash('mensagem-sucesso', 'Produto adicionado ao carrinho com sucesso!');
+        //$req->session()->flash('mensagem-sucesso', 'Produto adicionado ao carrinho com sucesso!');
 
         //Abaixo - Relacionado ao AJAX
         $where_produto2 = [
@@ -74,12 +69,11 @@ class CarrinhoController extends Controller
             'status'        => 'RE'
         ];
 
-
         $url = $req->input('url');
          if($url == "/carrinho"){
             $produto = CarrinhoProduto::where($where_produto2)->get();
             $produto['qtd'] = $produto->count();
-            return response()->json([ $produto ]);
+            return response()->json([ $produto, 'message' => 'Produto adicionado ao carrinho!' ]);
          } else {
             return redirect()->route('carrinho.index');
         }
@@ -136,7 +130,7 @@ class CarrinhoController extends Controller
             ])->delete();
         }
 
-        $req->session()->flash('mensagem-sucesso', 'Produto removido do carrinho com sucesso!');
+        //$req->session()->flash('mensagem-sucesso', 'Produto removido do carrinho com sucesso!');
 
 
         // Abaixo - Relacionado ao AJAX
@@ -150,7 +144,7 @@ class CarrinhoController extends Controller
         $produto['qtd'] = $produto->count();
 
         //return redirect()->route('carrinho.index');
-        return response()->json([ $produto ]);
+        return response()->json([ $produto, 'message' => 'Produto removido do carrinho!' ]);
     }
 
     public function concluir() {

@@ -7,9 +7,17 @@
         <div class="container">
             
             {{ csrf_field() }}
-            <h3>Produtos no carrinho</h3>
+            <div class="row">
+                <h3 id="carrinho-titulo">Produtos no carrinho</h3>
+                <div class="alert alert-success" role="alert">
+                    <strong>{{ Session::get('mensagem-sucesso') }}</strong>
+                </div>
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{ Session::get('mensagem-falha') }}</strong>
+                </div>
+            </div>
             <hr>
-            @if (Session::has('mensagem-sucesso'))
+            {{--  @if (Session::has('mensagem-sucesso'))
                 <div class="alert alert-success" role="alert">
                     <strong>{{ Session::get('mensagem-sucesso') }}</strong>
                 </div>
@@ -18,7 +26,7 @@
                 <div class="alert alert-danger" role="alert">
                     <strong>{{ Session::get('mensagem-falha') }}</strong>
                 </div>
-            @endif
+            @endif  --}}
             
             <section class="carrinho-geral">
                 @if($carrinhos->count())
@@ -89,7 +97,7 @@
                                     <strong class="text-left col-lg-2 col-md-2 col-2 carrinho-total-texto">
                                         Nº de itens: 
                                     </strong>
-                                    <span class="col-2 col-md-2 col-lg-2 text-center carrinho-total">{{ $num_itens }}</span>
+                                    <span id="carrinho-itens" class="col-2 col-md-2 col-lg-2 text-center carrinho-total">{{ $num_itens }}</span>
                                     <strong class=" col-lg-4 col-md-4 col-4 carrinho-total-texto">
                                         Total do pedido:
                                     </strong>

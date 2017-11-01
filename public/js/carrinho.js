@@ -30,6 +30,7 @@ function carrinhoRemoverProduto(element, idcarrinho, idproduto, item, e) {
 
                 //Atualiza o total (.carrinho-total)
                 atualizaTotal();
+                $(".alert-success").html(produto.message).fadeIn(800, mostraAlert());
             } else { //Se a última unidade de um produto for removida, precisa verificar se o carrinho ainda tem outros produtos
                 verificaVazio(element, "remover");
             }
@@ -48,7 +49,8 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
             "url": window.location.pathname,
             "_method": "post"
         },
-        success: function(produto) { 
+        success: function(produto) {
+            //console.log(produto.message); 
             var qtd = produto[0].qtd;
             //Atualiza a quantidade
             var td = $(element).closest('td');
@@ -63,7 +65,9 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
             $(spanSubTotal).html( subTotalForm );
 
             //Atualiza o total (.carrinho-total)
-            atualizaTotal();  
+            atualizaTotal();
+            $(".alert-success").html(produto.message).fadeIn(800, mostraAlert());
+            
         },
         error: function(req, textStatus, errorThrown) {
             // != 200 OK HTTP
@@ -89,10 +93,13 @@ function verificaVazio(element, acao){
                 $( ".carrinho-geral" ).detach();
             } else { //Se ainda houver produtos no carrinho, remove apenas a linha
                 if(acao == "remover"){
-                    $(element).closest('tr').fadeOut(500, function(){
-                        $(element).closest('tr').remove();                        
+                    $(element).closest('tr').fadeOut(250, function(){
+                        $(element).closest('tr').remove();
+                        var numItens = Number($("#carrinho-itens").html());
+                        numItens -= 1;
+                        $("#carrinho-itens").html(numItens);
+                        atualizaTotal();
                     });
-                    atualizaTotal();
                 }
             }
         }
@@ -119,6 +126,11 @@ function calculaTotal(total, $this) {
     return totalLinha;
 }
 
+function mostraAlert(){
+    setTimeout(function(){
+        $(".alert").fadeOut(800);
+    }, 3500);
+}
 
 // function carrinhoRemoverProduto(idcarrinho, idproduto, item, e) {
 //     $('#form-remover-produto input[name="carrinho_id"]').val(idcarrinho);

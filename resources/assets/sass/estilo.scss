@@ -92,6 +92,15 @@ ul.barra-categorias {
 }
 
 //Carrinho 
+#carrinho-titulo {
+    float: left;
+}
+
+.alert {
+    float: right;
+    margin-bottom: 0 !important;
+    width: 40%;
+}
 a.btn.btn-link {
     color: #3097D1 !important;
     &:hover{
@@ -131,6 +140,14 @@ a.icone-carrinho{
 .btn-pagar {
     float: right !important;
     margin: 10px 0px !important;
+}
+
+.alert-success {
+    display: none;
+}
+
+.alert-danger {
+    display: none;
 }
 
 .linha-carrinho {
