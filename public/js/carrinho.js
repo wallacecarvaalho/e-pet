@@ -1,8 +1,6 @@
 
 verificaVazio(null, "verificar");
 
-
-
 function carrinhoRemoverProduto(element, idcarrinho, idproduto, item, e) {
     $.ajax({
         url: "/carrinho/remover",
@@ -32,8 +30,6 @@ function carrinhoRemoverProduto(element, idcarrinho, idproduto, item, e) {
 
                 //Atualiza o total (.carrinho-total)
                 atualizaTotal();
-
-                
             } else { //Se a última unidade de um produto for removida, precisa verificar se o carrinho ainda tem outros produtos
                 verificaVazio(element, "remover");
             }
@@ -42,13 +38,6 @@ function carrinhoRemoverProduto(element, idcarrinho, idproduto, item, e) {
 }
 
 function carrinhoAdicionarProduto(element, idproduto, e) {
-    // $.post('/carrinho/adicionar', {"produto_id": idproduto},
-    //     function(dados){
-    //         console.log(dados);
-    // }).fail(function(erro){
-    //     console.log("Erro: " + erro);
-    // })
-
     $.ajax({
         url: "/carrinho/adicionar",
         type: "post",
@@ -56,6 +45,7 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         data: {
             "id": idproduto,
+            "url": window.location.pathname,
             "_method": "post"
         },
         success: function(produto) { 
@@ -79,11 +69,7 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
             // != 200 OK HTTP
             alert('Ooops, algo deu errado: ' + textStatus + ' ' + errorThrown);
         }
-
     })
-
-    // $('#form-adicionar-produto input[name="id"]').val(idproduto);
-    // $('#form-adicionar-produto').submit();
 }
 
 function verificaVazio(element, acao){
@@ -94,8 +80,6 @@ function verificaVazio(element, acao){
         datatype: "JSON",
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         data: {
-            //"carrinho_id": idcarrinho,
-            //"produto_id": idproduto,
             "_method": "GET"
         },
         success: function(retorno){
@@ -105,7 +89,7 @@ function verificaVazio(element, acao){
                 $( ".carrinho-geral" ).detach();
             } else { //Se ainda houver produtos no carrinho, remove apenas a linha
                 if(acao == "remover"){
-                    $(element).closest('tr').fadeOut(1000, function(){
+                    $(element).closest('tr').fadeOut(500, function(){
                         $(element).closest('tr').remove();                        
                     });
                     atualizaTotal();
@@ -124,12 +108,10 @@ function atualizaTotal(){
     });
     total = total * 1000; //Para transformar em milhar, devido a confusão entre ponto e vírgula
     var totalForm = total.toLocaleString('PT-BR', { style: 'currency', currency: 'BRL' });
-    console.log(totalForm);
     $( txtTotal ).html( totalForm );
 }
 
 function calculaTotal(total, $this) {
-    //$this = $(this);
     var qtdLinha = $this.find('.qtd-carrinho').html(); 
     var subTotalString = $this.find('.vlr-unit-carrinho').html();
     var valor = Number(subTotalString.replace(/[^0-9\.-]+/g,"")); 

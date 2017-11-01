@@ -9,6 +9,7 @@ use App\Produto;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class CarrinhoController extends Controller
 {
@@ -73,12 +74,15 @@ class CarrinhoController extends Controller
             'status'        => 'RE'
         ];
 
-        $produto = CarrinhoProduto::where($where_produto2)->get();
-        $produto['qtd'] = $produto->count();
 
-        //return redirect()->route('carrinho.index');
-        return response()->json([ $produto ]);
-        // return teste;
+        $url = $req->input('url');
+         if($url == "/carrinho"){
+            $produto = CarrinhoProduto::where($where_produto2)->get();
+            $produto['qtd'] = $produto->count();
+            return response()->json([ $produto ]);
+         } else {
+            return redirect()->route('carrinho.index');
+        }
     }
 
     public function remover() {
