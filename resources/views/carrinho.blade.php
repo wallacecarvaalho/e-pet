@@ -93,7 +93,7 @@
                                     <strong class=" col-lg-4 col-md-4 col-4 carrinho-total-texto">
                                         Total do pedido:
                                     </strong>
-                                    <span class="col-sm-offset-8 col-md-offset-8 col-4 col-md-4 col-lg-4 text-center carrinho-total">R$ {{ number_format($total_carrinho, 2, ',', '.') }}</span>
+                                    <span id="carrinho-total" class="col-sm-offset-8 col-md-offset-8 col-4 col-md-4 col-lg-4 text-center carrinho-total">R$ {{ number_format($total_carrinho, 2, ',', '.') }}</span>
                                 </div>
                                     <a class="btn col-4 col-md-4 col-lg-4 btn-continuar-comprando" data-toggle="tooltip"
                                     data-placement="right" title="Voltar a página inicial para selecionar mais itens!" href="/">

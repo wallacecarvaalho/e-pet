@@ -59,7 +59,6 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
             "_method": "post"
         },
         success: function(produto) { 
-            console.log(produto);
             var qtd = produto[0].qtd;
             //Atualiza a quantidade
             var td = $(element).closest('td');
@@ -100,14 +99,15 @@ function verificaVazio(element, acao){
             "_method": "GET"
         },
         success: function(retorno){
-            console.log(retorno);
             if(retorno == 1){
                 //Se o carrinho está vazio, mostra mensagem de ' Carrinho Vazio :( '
                 $( ".carrinho-vazio" ).toggle();
                 $( ".carrinho-geral" ).detach();
             } else { //Se ainda houver produtos no carrinho, remove apenas a linha
                 if(acao == "remover"){
-                    $(element).closest('tr').remove();
+                    $(element).closest('tr').fadeOut(1000, function(){
+                        $(element).closest('tr').remove();                        
+                    });
                     atualizaTotal();
                 }
             }
@@ -116,7 +116,7 @@ function verificaVazio(element, acao){
 }
 
 function atualizaTotal(){
-    var txtTotal = $('.carrinho-total');
+    var txtTotal = $('#carrinho-total');
     var total = 0;
     $("tr.row-carrinho").each(function(){
         $this = $(this);
