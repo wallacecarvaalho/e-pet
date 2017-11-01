@@ -53,16 +53,32 @@ class CarrinhoController extends Controller
             $idcarrinho = $carrinho_novo->id;
         }
 
-        CarrinhoProduto::create([
+        $produtoCriado = CarrinhoProduto::create([
             'carrinho_id' => $idcarrinho,
             'produto_id' => $idproduto,
             'valor' => $produto->preco,
             'status' => 'RE'
         ]);
 
+        // if(empty($produtoCriado)){
+        //     return response()->json([  'status' => 'VAZIO' ]);
+        // } else {
+        //     return response()->json([  'status' => 'PREENCHIDO' ]);
+        // }
         $req->session()->flash('mensagem-sucesso', 'Produto adicionado ao carrinho com sucesso!');
 
-        return redirect()->route('carrinho.index');
+        //Abaixo - Relacionado ao AJAX
+        $where_produto2 = [
+            'produto_id'    => $idproduto,
+            'status'        => 'RE'
+        ];
+
+        $produto = CarrinhoProduto::where($where_produto2)->get();
+        $produto['qtd'] = $produto->count();
+
+        //return redirect()->route('carrinho.index');
+        return response()->json([ $produto ]);
+        // return teste;
     }
 
     public function remover() {
@@ -118,8 +134,19 @@ class CarrinhoController extends Controller
 
         $req->session()->flash('mensagem-sucesso', 'Produto removido do carrinho com sucesso!');
 
-        return redirect()->route('carrinho.index');
 
+        // Abaixo - Relacionado ao AJAX
+        $where_produto2 = [
+            'carrinho_id'   => $idcarrinho,
+            'produto_id'    => $idproduto,
+            'status'        => 'RE'
+        ];
+
+        $produto = CarrinhoProduto::where($where_produto2)->get();
+        $produto['qtd'] = $produto->count();
+
+        //return redirect()->route('carrinho.index');
+        return response()->json([ $produto ]);
     }
 
     public function concluir() {
@@ -181,5 +208,25 @@ class CarrinhoController extends Controller
         ])->orderBy('updated_at', 'desc')->get();*/
 
         return view('compras', compact('compras'));
+    }
+
+    public function verificarVazio(){
+        $req = Request();
+        // $idcarrinho              = $req->input('carrinho_id');
+        // $idproduto               = $req->input('produto_id');
+        $idusuario               = Auth::id();
+
+        $idcarrinho = Carrinho::consultaId([
+            // 'id'        => $idcarrinho,
+            'user_id'   => $idusuario,
+            'status'    => 'RE'
+        ]);
+
+        if( empty($idcarrinho) ) {
+            return 1;
+        } else {
+            return 0;
+        }
+
     }
 }
