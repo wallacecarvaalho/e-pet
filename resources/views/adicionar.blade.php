@@ -5,7 +5,7 @@
     <hr>
 <div class="container">
 
-    <div class="row">
+    {{--  <div class="row">  --}}
         <form action="{{ route('produtos.salvar') }}" method="POST" enctype="multipart/form-data">
             
             {{ csrf_field() }} 
@@ -15,6 +15,6 @@
             <br>
 
         </form>
-    </div>
+    {{--  </div>  --}}
 </div>
 @stop

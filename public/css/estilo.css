@@ -83,6 +83,11 @@ ul.barra-categorias {
   margin-top: -1px;
 }
 
+.row-correcao-gutter {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 #carrinho-titulo {
   float: left;
 }
@@ -112,7 +117,7 @@ div.tabela th {
 }
 
 @media screen and (max-width: 640px) {
-  div.tabela {
+  table {
     overflow-x: auto;
     display: block;
   }
@@ -176,26 +181,15 @@ a.carrinho-icone:hover {
   display: none;
 }
 
-.linha-carrinho {
-  vertical-align: middle !important;
-  font-size: 16px;
-  border-bottom: 1px solid #dddddd;
-  padding: 8px !important;
-  border: 1px solid lightgrey;
-}
-
-.linha-carrinho.botoes-carrinho {
+.botoes-carrinho {
   text-align: center !important;
 }
 
-.item-carrinho-produtos {
+th.glyphicon {
   padding: 8px;
   font-size: 20px;
   background: #a923c4;
   color: white;
-}
-
-.item-carrinho-produtos.glyphicon {
   display: table-cell;
   top: 0;
   text-align: center;
@@ -205,13 +199,9 @@ a.carrinho-icone:hover {
   text-align: center;
 }
 
-.table-hover.table-produtos tr:hover {
-  background: #ededed !important;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-}
-
 .btn-editar {
+  margin: 5px;
+  text-align: center !important;
   color: darkorange !important;
   border: 2px solid darkorange !important;
 }
@@ -224,6 +214,7 @@ a.carrinho-icone:hover {
 }
 
 .btn-deletar {
+  margin: 5px;
   background: white !important;
   color: darkred !important;
   border: 2px solid darkred !important;

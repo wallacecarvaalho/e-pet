@@ -2,7 +2,6 @@
     <label for="name">Nome do produto: </label>
     <input class="form-control" type="text" id="name" name="name" value="{{ isset($produto->name) ? $produto->name : ''}}" required>
 </div>
-
 <div class="form-group">
     <label for="descricao">Descrição: </label>
     <textarea class="form-control" id="descricao" name="descricao" rows="3" required>{{ isset($produto->descricao) ? $produto->descricao : ''}}</textarea>

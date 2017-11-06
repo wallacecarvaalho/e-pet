@@ -91,7 +91,12 @@ ul.barra-categorias {
     margin-top: -1px;
 }
 
-//Carrinho 
+.row-correcao-gutter {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+//Carrinho
 #carrinho-titulo {
     float: left;
 }
@@ -119,22 +124,25 @@ div.tabela th {
     color: white;
 }
 @media screen and (max-width: 640px) {
-	div.tabela {
+	table {
 		overflow-x: auto;
 		display: block;
 	}
 }
+
 .alert {
     float: right;
     margin-bottom: 0 !important;
     width: 40%;
 }
+
 a.btn.btn-link {
     color: #3097D1 !important;
     &:hover{
         color: #216a94 !important;
     }
 }
+
 a.carrinho-icone{
     color: #3097D1 !important;
     font-size: 16px;
@@ -144,7 +152,6 @@ a.carrinho-icone{
 }
 
 .carrinho-qtd {
-    //padding: 8px;
     font-size: 20px;
 }
 
@@ -157,7 +164,6 @@ a.carrinho-icone{
 }
 
 .carrinho-total-texto {
-    //text-align: right;
     font-size: 18px;
 }
 
@@ -168,7 +174,6 @@ a.carrinho-icone{
 }
 
 .btn-pagar {
-    //float: right !important;
     margin-top: 5px;
     margin-bottom: 5px !important;
 }
@@ -181,43 +186,61 @@ a.carrinho-icone{
     display: none;
 }
 
-.linha-carrinho {
-    vertical-align: middle !important;
-    font-size: 16px;
-    border-bottom: 1px solid rgb(221, 221, 221);
-    //padding: 10px 0;
-    padding: 8px !important; 
-    border: 1px solid lightgrey;
-    &.botoes-carrinho {
-        text-align: center !important;
-    }
+.botoes-carrinho{
+    text-align: center !important;
+
 }
+
+// .linha-carrinho { // PROVAVELMENTE REMOVER ESTA CLASSE...
+//     vertical-align: middle !important;
+//     font-size: 16px;
+//     border-bottom: 1px solid rgb(221, 221, 221);
+//     //padding: 10px 0;
+//     padding: 8px !important; 
+//     border: 1px solid lightgrey;
+//     &.botoes-carrinho {
+//         text-align: center !important;
+//     }
+// }
 // ===========
 
 //Tabela produtos na dashboard
-.item-carrinho-produtos {
+// .item-carrinho-produtos { // PROVAVELMENTE REMOVER ESTA CLASSE...
+//     padding: 8px;
+//     font-size: 20px;
+//     background: #a923c4;
+//     color: white;
+//     &.glyphicon {
+//         display: table-cell;
+//         top: 0;
+//         text-align: center;
+//     }
+// }
+
+th.glyphicon {
     padding: 8px;
     font-size: 20px;
     background: #a923c4;
     color: white;
-    &.glyphicon {
-        display: table-cell;
-        top: 0;
-        text-align: center;
-    }
+    display: table-cell;
+    top: 0;
+    text-align: center;
+
 }
 
 .table-hover {
     & td:first-child{
         text-align: center;
     }
-    &.table-produtos tr:hover {
-        background: rgb(237, 237, 237) !important;
-        transition: 0.1s;
-    }
+    // &.table-produtos tr:hover { // PROVAVELMENTE REMOVER ESTA CLASSE...
+    //     background: rgb(237, 237, 237) !important;
+    //     transition: 0.1s;
+    // }
 }
 
 .btn-editar {
+    margin: 5px;
+    text-align: center !important;
     color: darkorange !important;
     border: 2px solid darkorange !important;
     &:hover {
@@ -228,6 +251,7 @@ a.carrinho-icone{
 }
 
 .btn-deletar {
+    margin: 5px;
     background: white !important;
     color: darkred !important;
     border: 2px solid darkred !important;

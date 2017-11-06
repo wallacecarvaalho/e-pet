@@ -93,7 +93,7 @@
                         @if ($loop->last) 
                                 </tbody>
                             </table>
-                            </div>
+                            </div> {{-- Fecha div.tabela --}}
                             <div class="row">
                                 <strong class="text-left col-xs-6 col-md-3 col-lg-3 carrinho-total-texto"> {{--    --}}
                                     Nº de itens: 
@@ -128,7 +128,7 @@
                         @endif
                     @endforeach
                 @empty
-                {{--  Depois de implementar o AJAX, acho que não precisa por nada aqui...  --}}
+                {{--  Como o AJAX que vai ver se o carrinho está vazio ou não, acho que não precisa de nada aqui..  --}}
                 @endforelse
             </section>
                 <div class="container carrinho-vazio" style="display: none">
