@@ -94,16 +94,16 @@
   <footer id="footer">
  
     <div class="row">
-    <div class="col-md-6">
-        <ul>
-            <li>Sobre nós</li>
-        </ul>
-     </div> 
-      <div class="col-md-6">
-        <ul>
-            <li>Empresa</li>
-        </ul>
-      </div>
+        <div class="col-md-6">
+            <ul>
+                <li>Sobre nós</li>
+            </ul>
+        </div> 
+        <div class="col-md-6">
+            <ul>
+                <li>Empresa</li>
+            </ul>
+        </div>
     </div>
 
   </footer>

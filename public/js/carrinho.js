@@ -18,7 +18,7 @@ function carrinhoRemoverProduto(element, idcarrinho, idproduto, item, e) {
             if(qtd > 0){
                 //Atualiza a quantidade
                 var td = $(element).closest('td'); //Pega o 'td' Pai
-                var spanQtd = $(td).find('.qtd-carrinho');
+                var spanQtd = $(td).find('.carrinho-qtd');
                 $(spanQtd).html(qtd); 
 
                 //Atualiza o subtotal
@@ -54,7 +54,7 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
             var qtd = produto[0].qtd;
             //Atualiza a quantidade
             var td = $(element).closest('td');
-            var spanQtd = $(td).find('.qtd-carrinho');
+            var spanQtd = $(td).find('.carrinho-qtd');
             $(spanQtd).html(qtd); 
 
             //Atualiza o subtotal
@@ -109,7 +109,7 @@ function verificaVazio(element, acao){
 function atualizaTotal(){
     var txtTotal = $('#carrinho-total');
     var total = 0;
-    $("tr.row-carrinho").each(function(){
+    $("tr.carrinho-row").each(function(){
         $this = $(this);
         total += calculaTotal(total, $this);
     });
@@ -119,7 +119,7 @@ function atualizaTotal(){
 }
 
 function calculaTotal(total, $this) {
-    var qtdLinha = $this.find('.qtd-carrinho').html(); 
+    var qtdLinha = $this.find('.carrinho-qtd').html(); 
     var subTotalString = $this.find('.vlr-unit-carrinho').html();
     var valor = Number(subTotalString.replace(/[^0-9\.-]+/g,"")); 
     var totalLinha = qtdLinha * valor;

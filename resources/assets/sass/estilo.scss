@@ -96,6 +96,34 @@ ul.barra-categorias {
     float: left;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #bbb;
+}
+
+td, th {
+    border-top: 1px solid #ddd;
+    padding: 4px 8px;
+    vertical-align: middle !important;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #eee;
+}
+
+div.tabela th {
+    padding: 8px;
+    font-size: 14px;
+    background: #a923c4;
+    color: white;
+}
+@media screen and (max-width: 640px) {
+	div.tabela {
+		overflow-x: auto;
+		display: block;
+	}
+}
 .alert {
     float: right;
     margin-bottom: 0 !important;
@@ -107,39 +135,42 @@ a.btn.btn-link {
         color: #216a94 !important;
     }
 }
-a.icone-carrinho{
+a.carrinho-icone{
     color: #3097D1 !important;
+    font-size: 16px;
     &:hover{
         color: #216a94 !important;
     }
 }
 
-.item-carrinho {
-    padding: 8px;
+.carrinho-qtd {
+    //padding: 8px;
     font-size: 20px;
 }
 
 .carrinho-total {
     margin: 0px !important;
     color: rgb(65, 185, 65);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
+    text-align: left !important;
 }
 
 .carrinho-total-texto {
-    text-align: right;
-    font-size: 24px;
+    //text-align: right;
+    font-size: 18px;
 }
 
 .btn-continuar-comprando {
-    margin: 10px 0px !important;
+    margin: 5px 0px !important;
     background-color: orange;
     color: white;
 }
 
 .btn-pagar {
-    float: right !important;
-    margin: 10px 0px !important;
+    //float: right !important;
+    margin-top: 5px;
+    margin-bottom: 5px !important;
 }
 
 .alert-success {
