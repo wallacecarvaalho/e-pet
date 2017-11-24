@@ -24,8 +24,8 @@ class PagamentoController extends Controller
             'status' => 'RE',
             'user_id' => Auth::id()
         ])->get();
-    
-        return view('layouts.store.checkout', compact('dados','data','session'));
+        $amount = number_format(521.50, 2, '.', '');
+        return view('layouts.store.checkout', compact('dados','data','session','amount'));
  }
  
 

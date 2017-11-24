@@ -16,7 +16,11 @@
         <div class="tab-content">
 
             <div class="tab-pane active" role="tabpanel" id="step1" >
-
+    
+                <input type="hidden" name="itemId1" value="0001">
+                <input type="hidden" name="itemDescription1" value="Produto PagSeguroI">
+                <input type="hidden" name="itemAmount1" value="250.00">
+                <input type="hidden" name="itemQuantity1" value="2">
                 <input type="hidden" name="senderHash" id="senderHash">
 
                 <p>Preencha suas informaçoes</p>
@@ -233,7 +237,7 @@
  <script>
           const paymentData = {
             brand: '',
-            amount: 531.50,
+            amount: {{$amount}},
          }
          PagSeguroDirectPayment.setSessionId('{!! $session !!}');
                 
