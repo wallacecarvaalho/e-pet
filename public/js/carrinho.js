@@ -50,7 +50,6 @@ function carrinhoAdicionarProduto(element, idproduto, e) {
             "_method": "post"
         },
         success: function(produto) {
-            //console.log(produto.message); 
             var qtd = produto[0].qtd;
             //Atualiza a quantidade
             var td = $(element).closest('td');
@@ -121,7 +120,18 @@ function atualizaTotal(){
 function calculaTotal(total, $this) {
     var qtdLinha = $this.find('.carrinho-qtd').html(); 
     var subTotalString = $this.find('.vlr-unit-carrinho').html();
-    var valor = Number(subTotalString.replace(/[^0-9\.-]+/g,"")); 
+
+    var valor = Number(subTotalString.replace(/[^0-9\.]+/g,""));
+
+    //Verifica se tem ponto na string (indicando que o valor é maior que mil)
+    //Por algum motivo, a variável 'subTotalString', quando menor que 1000, apenas retira os caracteres 'R$,'
+    //Logo, se .vlr-unit-carrinho = R$100,00, 'valor' será igual a 10000 (ao invés do correto, 0.1)
+    //Já se .vlr-unit-carrinho = R$1.500,00, 'valor' será igual a 1.5
+    console.log(valor);
+    if(subTotalString.indexOf(".") < 0) { 
+        valor = valor/100000;
+    }
+
     var totalLinha = qtdLinha * valor;
     return totalLinha;
 }
