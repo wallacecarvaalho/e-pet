@@ -48,8 +48,6 @@
                         <tbody>
                 @endif
                 @forelse ($carrinhos as $carrinho)
-                    {{--  <h5 class="col-sm-12 col-md-6 col-lg-6">Pedido: {{ $carrinho->id }} </h5>
-                    <h5 class="col-sm-12 col-md-6 col-lg-6">Criado em: {{ $carrinho->created_at->format('d/m/Y H:i') }} </h5>  --}}
                     @foreach ($carrinho->carrinho_produtos as $carrinho_produto)
                         @php
                             $num_itens++;
@@ -131,10 +129,11 @@
                 {{--  Como o AJAX que vai ver se o carrinho está vazio ou não, acho que não precisa de nada aqui..  --}}
                 @endforelse
             </section>
-                <div class="container carrinho-vazio" style="display: none">
-                    <div class="page-header">
-                        <h1>Seu carrinho está vazio! :(</h1>
-                    </div>
+                <div class="carrinho-vazio" style="display: none">
+                    {{--  <div class="page-header">  --}}
+                        <h1><strong>Seu carrinho está vazio! :(</strong></h1>
+                    {{--  </div>  --}}
+                    <hr>
                     <p>Para adicionar produtos em seu carrinho, clique no botão "Comprar" no produto desejado.</p>
                     <a href="/" class="btn btn-success">Voltar</a>
                 </div>

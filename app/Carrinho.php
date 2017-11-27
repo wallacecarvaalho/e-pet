@@ -19,8 +19,15 @@ class Carrinho extends Model
             ->orderBy('produto_id', 'desc');
     }
     
+    // public function carrinho_produtos_itens(){
+    //     return $this->hasMany('App\CarrinhoProduto');
+    // }
+    
     public function carrinho_produtos_itens(){
-        return $this->hasMany('App\CarrinhoProduto');
+        return $this->hasMany('App\CarrinhoProduto') //1:N , um pedido, vários produtos
+        ->select( \DB::raw('produto_id, sum(valor) as valores, valor, count(1) as qtd'))
+        ->groupBy('produto_id')
+        ->orderBy('produto_id', 'desc');
     }
 
     public static function consultaId($where){

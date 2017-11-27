@@ -123,8 +123,13 @@ div.tabela th {
     background: #a923c4;
     color: white;
 }
-@media screen and (max-width: 640px) {
-	table {
+
+div.tabela tfoot {
+    background-color: #79178f;
+    color: white;
+}
+@media screen and (max-width: 768px) {
+	div.tabela {
 		overflow-x: auto;
 		display: block;
 	}
@@ -140,6 +145,15 @@ a.btn.btn-link {
     color: #3097D1 !important;
     &:hover{
         color: #216a94 !important;
+    }
+}
+
+.carrinho-vazio {
+    //border: 2px solid rgb(229, 229, 229);
+    //padding: 5px;
+    margin-bottom: 5px;
+    & h1 {
+        color: #a923c4;
     }
 }
 

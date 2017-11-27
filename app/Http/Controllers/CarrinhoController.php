@@ -198,12 +198,6 @@ class CarrinhoController extends Controller
             'status'    => 'PA',
             'user_id'   => Auth::id()
         ])->orderBy('created_at', 'desc')->get();
-        
-        //Para buscar itens cancelados...
-        /*$cancelados = Carrinho::where([
-            'status'    => 'CA',
-            'user_id'   => Auth::id()
-        ])->orderBy('updated_at', 'desc')->get();*/
 
         return view('compras', compact('compras'));
     }
