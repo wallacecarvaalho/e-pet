@@ -82,13 +82,13 @@
                                             <img src="{{$p->imagem}}" class="img-rounded img-descricao" alt="...">
                                             <div class="caption">
                                                 <h3>{{$p->name}}</h3>
-                                                <p class="preco">R$ {{$p->preco}}</p>
+                                                <p class="preco">{{ $p->status == 'Indisponivel' ? 'Indisponível' : 'R$ '.$p->preco }}</p>
 
                                                 <form method="POST" action="{{ route('carrinho.adicionar') }}">
                                                     
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="id" value="{{ $p->id }}">
-                                                    <button class="btn btn-success btn-comprar">Comprar</button>
+                                                    <button class="btn btn-success btn-comprar" {{ $p->status == 'Indisponivel' ? 'disabled' : '' }}>Comprar</button>
                                                     {{--  <p><a href="#" class="btn btn-success btn-comprar" role="button">Comprar</a></p>  --}}
                                                 </form>
 

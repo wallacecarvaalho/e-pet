@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>E-Pet</title>
+        <title>E-Commerce</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>      
-        <a class="navbar-brand" href="/">E-Pet</a> 
+        <a class="navbar-brand" href="/">E-Commerce</a> 
         </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right text-center">
@@ -96,12 +96,12 @@
     <div class="row row-correcao-gutter">
         <div class="col-xs-12 col-md-6">
             <ul>
-                <li>Sobre nós</li>
+                <li style="color: white">Sobre nós</li>
             </ul>
         </div> 
         <div class="col-xs-12 col-md-6">
             <ul>
-                <li>Empresa</li>
+                <li style="color: white">Empresa</li>
             </ul>
         </div>
     </div>

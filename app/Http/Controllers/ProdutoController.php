@@ -26,7 +26,7 @@ class ProdutoController extends Controller
 
         if(empty($produto)){
             return "Esse produto não existe";
-          }
+        }
           
         return view('buscar')->with('p',$produto);
 

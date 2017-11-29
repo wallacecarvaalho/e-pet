@@ -14,11 +14,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="btn-group-justified">
-                        <a href="/produtos/adicionar" class="btn btn-success botao-geral col-md-3">Adicionar produto</a>
-                        <a href="{{ route('produtos.listar') }}" class="btn btn-warning botao-geral col-md-3">Listar produtos</a>
+                    {{--  <div class="btn-group-justified">  --}}
+                        <a href="/produtos/adicionar" class="btn btn-success botao-geral col-xs-12 col-md-6 botao">Adicionar produto</a>
+                        <a href="{{ route('produtos.listar') }}" class="btn btn-warning botao-geral col-xs-12 col-md-6 botao-voltar">Listar produtos</a>
                     
-                    </div>
+                    {{--  </div>  --}}
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@
                                     </td>
                                     <td class="botoes-carrinho"> {{--  linha-carrinho  width="20%"  --}}
                                         <a class="btn btn-default glyphicon glyphicon-edit btn-editar" href="{{ route('produtos.editar', $p->id) }}"></a>
-                                        <a class="btn btn-danger glyphicon glyphicon-trash btn-deletar" href="#"></a>
+                                        {{--  <a class="btn btn-danger glyphicon glyphicon-trash btn-deletar" href="#"></a>  --}}
                                     </td>
                                 </tr>
 

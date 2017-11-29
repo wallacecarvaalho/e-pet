@@ -40,7 +40,7 @@
 
                 @if(isset($produto->imagem))
                 <div class="input-field">
-                    <img width="150" src="{{ asset($produto->imagem) }}">
+                    <img style="margin-bottom: 10px;" width="150" src="{{ asset($produto->imagem) }}">
                 </div>
                 @endif
             </div>
@@ -54,8 +54,8 @@
                 @include('_form') {{-- Formulário --}}
 
         </div>
-                <button type="submit" class="btn btn-primary btn-block botao-geral">Atualizar dados do produto</button>
-                <a href="{{ route ('produtos.listar') }}" class="btn btn-warning btn-block botao-geral">Voltar</a>
+                <button type="submit" class="btn btn-primary btn-block botao-geral botao">Atualizar dados do produto</button>
+                <a href="{{ route ('produtos.listar') }}" class="btn btn-warning btn-block botao-geral botao-voltar">Voltar</a>
 
             </form>
     </div>

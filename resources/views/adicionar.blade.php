@@ -11,7 +11,7 @@
             {{ csrf_field() }} 
             @include('_form') {{-- Formulário --}}
 
-            <button type="submit" class="btn btn-primary btn-block botao-geral">Adicionar produto</button>
+            <button type="submit" class="btn btn-primary btn-block botao-geral botao">Adicionar produto</button>
             <br>
 
         </form>

@@ -287,6 +287,40 @@ th.glyphicon {
     font-size: 16px !important;
     font-weight: bold !important;
 }
+
+.botao {
+    background: white !important;
+    color: #a923c4 !important;
+    border: 2px solid #a923c4 !important;
+    margin-bottom: 5px !important;
+    &:hover {
+        color: white !important;
+        background: #a923c4 !important;
+        transition: 0.2s;
+    }
+    &:active {
+        color: #a923c4 !important;
+        background: white !important;
+        transition: 0.1s;
+    }
+}
+
+.botao-voltar {
+    background: white !important;
+    color: darkorange !important;
+    border: 2px solid darkorange !important;
+    margin-bottom: 5px !important;
+    &:hover {
+        color: white !important;
+        background: darkorange !important;
+        transition: 0.2s;
+    }
+    &:active {
+        color: darkorange !important;
+        background: white !important;
+        transition: 0.1s;
+    }
+}
 //=================
 
 .btn-logar {
